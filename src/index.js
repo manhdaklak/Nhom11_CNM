@@ -17,7 +17,7 @@ const moment = require('moment');
 console.log(moment().format('L'));
 const { models } = require('mongoose');
 
-const port = 3000;
+const port = 8080;
 
 // cấu hình file tỉnh ( từ các file trong public)
 app.use(express.static(path.join(__dirname, 'public')));
@@ -72,5 +72,6 @@ app.set('views', path.join(__dirname, 'resources/views'));
 route(app);
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}/sinhvien`);
+  console.log(`Example app listening at http://localhost:${port}`);
+  // console.log(`Listening on port ${port}`);
 });
