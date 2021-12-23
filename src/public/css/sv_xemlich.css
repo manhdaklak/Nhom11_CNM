@@ -1,0 +1,297 @@
+@charset "UTF-8";
+:root {
+  -gray: #6c757d;
+  -blue: #4da1e8;
+  -textbold: #333333;
+  -text: #667580;
+  -textblue: #1da1f2;
+  -line: #cccccc;
+  -textred: #ff0000;
+  -headertable: #f3f7f9;
+  -textmiddle: #003f65;
+  -textmiddle022: #0c6fbe;
+  -inputdadien: #e8f0fe;
+}
+
+.body-main-xem-lich-sv {
+  background-color: #e7ecf0;
+  justify-content: center;
+}
+.xem-lich-sv {
+  width: 90%;
+  margin-top: 60px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* Menu Trái */
+.xem-lich-sv .menu-left-sv {
+  margin-right: 15px;
+}
+.xem-lich-sv .menu-left-sv .nav-link {
+  color: #667580;
+  font-size: 14px;
+  border-bottom: 0.5px solid #e7ecf0;
+  background-color: #ffffff;
+  width: 210px;
+  height: 50px;
+  padding-top: 15px;
+}
+.xem-lich-sv .menu-left-sv .nav-link:hover {
+  color: #1da1f2;
+}
+.xem-lich-sv .menu-left-sv .nav-link i {
+  margin: 0 5px 0 10px;
+}
+.xem-lich-sv .menu-left-sv .nav-link .icon-hoc-tap {
+  margin-left: 90px;
+}
+.xem-lich-sv .menu-left-sv .nav-link .icon-hoc-phi {
+  margin-left: 92px;
+}
+.xem-lich-sv .menu-left-sv .nav-link .icon-dkhp-hoc-phan {
+  margin-left: 18px;
+}
+
+.xem-lich-sv .menu-left-sv .div-menu-con .nav-link {
+  padding-left: 20px;
+}
+
+/* Main Thông Tin*/
+.xem-lich-sv .main-xem-lich-sv {
+  background-color: #ffffff;
+  width: 80%;
+}
+
+.xem-lich-sv .main-xem-lich-sv .text-title > p {
+  margin: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #667580;
+}
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich {
+  /* float: right; */
+  /* background-color: red; */
+}
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .mt-radio {
+  position: relative;
+  color: #667580;
+  margin-left: 10px;
+}
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .mt-radio input {
+  position: absolute;
+  top: 9px;
+  left: 11px;
+  border: 1px solid transparent;
+  background-color: rgba(255, 0, 0, 0);
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-radius: 6px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .mt-radio input:checked {
+  background-color: #888888;
+}
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .mt-radio span {
+  border: 1px solid transparent;
+  background-color: #e6e6e6;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  border-radius: 18px;
+}
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich #datepicker {
+  width: 160px;
+  margin: 0 20px 20px 20px;
+}
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich #datepicker > input {
+  height: 30px;
+  background-color: white;
+  outline: none;
+  width: 150px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  color: #003f65;
+  font-size: 14px;
+  padding: 5px;
+  padding-left: 10px;
+}
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich #datepicker > input :hover {
+  outline: 1px solid #1da1f2;
+}
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich #datepicker > span {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid #cccccc;
+  color: #003f65;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 4px 4px 0;
+}
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .hienTai,
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .troVe,
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .tiep,
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .fullScreen {
+  height: 30px;
+  background-color: #1da1f2;
+  border-radius: 3px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .hienTai:hover,
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .troVe:hover,
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .tiep:hover,
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .fullScreen:hover {
+  background-color: #cccccc95;
+}
+
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .hienTai > span {
+  color: white;
+  height: 30px;
+  margin: 8px 5px 5px 10px;
+  font-size: 14px;
+}
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .hienTai > p {
+  color: white;
+  margin-right: 10px;
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .troVe > span {
+  color: white;
+  height: 30px;
+  margin: 8px 5px 5px 8px;
+  font-size: 14px;
+}
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .troVe > p {
+  color: white;
+  margin-right: 10px;
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .tiep > span {
+  color: white;
+  height: 30px;
+  margin: 8px 8px 5px 5px;
+  font-size: 14px;
+}
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .tiep > p {
+  color: white;
+  margin-left: 10px;
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.xem-lich-sv .main-xem-lich-sv .chuc-nang-lich .fullScreen > span {
+  color: white;
+  height: 30px;
+  margin: 8px 10px 5px 10px;
+  font-size: 14px;
+}
+/* Lich */
+.xem-lich-sv .main-xem-lich-sv .mainXemLich {
+}
+.xem-lich-sv .main-xem-lich-sv .mainXemLich thead {
+  background-color: #f3f7f9;
+  color: #1da1f2;
+  width: 100%;
+}
+
+/* Body */
+.xem-lich-sv .main-xem-lich-sv .mainXemLich tbody {
+  background-image: url("https://cnm-lab3.s3.ap-southeast-1.amazonaws.com/hotrosinhvienIUH/backgroud-lich.png");
+}
+.xem-lich-sv .main-xem-lich-sv .mainXemLich tbody .titleLich {
+  background-color: #ffffce !important;
+}
+.xem-lich-sv .main-xem-lich-sv .mainXemLich tbody .lich-hoc-chi-tiet {
+  width: 150px;
+  background-color: #e7ecf0;
+  border-radius: 4px;
+  border: 1px solid #c9d0db;
+  font-size: 14px;
+  padding: 5px;
+  margin-bottom: 10px;
+  /* width: 100px; */
+}
+.xem-lich-sv .main-xem-lich-sv .mainXemLich tbody .lich-hoc-chi-tiet p {
+  margin-bottom: 5px;
+  color: #003763;
+}
+
+.xem-lich-sv .main-xem-lich-sv .mainXemLich tbody .lich-thi-chi-tiet {
+  background-color: #fdff9a;
+  border-radius: 4px;
+  border: 1px solid #edaf00;
+  font-size: 14px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.xem-lich-sv .main-xem-lich-sv .mainXemLich tbody .lich-thi-chi-tiet p {
+  margin-bottom: 5px;
+  color: #003763;
+}
+
+.xem-lich-sv .main-xem-lich-sv .mainXemLich tbody .lich-huy-chi-tiet {
+  background-color: rgba(203, 67, 53, 0.8);
+  border-radius: 4px;
+  border: 1px solid rgba(218, 36, 18, 0.6);
+  font-size: 14px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.xem-lich-sv .main-xem-lich-sv .mainXemLich tbody .lich-huy-chi-tiet p {
+  margin-bottom: 5px;
+  color: #003763;
+}
+/* Ghi chú */
+.xem-lich-sv .main-xem-lich-sv .ghiChu {
+  display: flex;
+  justify-content: center;
+}
+.xem-lich-sv .main-xem-lich-sv .ghiChu .ghiChuNho {
+  display: flex;
+  align-items: center;
+  margin: 0 30px 30px 0;
+}
+.xem-lich-sv .main-xem-lich-sv .ghiChu .ghiChuNho span {
+  color: #667580;
+  margin-left: 5px;
+}
+.xem-lich-sv .main-xem-lich-sv .ghiChu .ghiChuLichHoc {
+  height: 20px;
+  width: 50px;
+  background-color: #e7ecf0;
+  border: 1px solid #c9d0db;
+}
+
+.xem-lich-sv .main-xem-lich-sv .ghiChu .ghiChuLichThi {
+  height: 20px;
+  width: 50px;
+  background-color: #fdff9a;
+  border: 1px solid #edaf00;
+}
+
+.xem-lich-sv .main-xem-lich-sv .ghiChu .ghiChuLichTamNgung {
+  height: 20px;
+  width: 50px;
+  background-color: rgba(203, 67, 53, 0.8);
+  border: 1px solid rgba(218, 36, 18, 0.6);
+}
+
+.xem-lich-sv .main-xem-lich-sv #HienThiLichTrongTuan .BuoiHoc{
+  margin-top: 70px;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  
+}

@@ -1,0 +1,226 @@
+{{>header}}
+<div class="navbar body-main-thong-tin-sv">
+  <div class="thong-tin-ca-nhan-sv row">
+    {{! /* Menu Trái */ }}
+    <div class="menu-left-sv col-md-2 col-lg-2">
+      <nav class="navbar-expand-lg">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/sinhvien/home" {{! data-toggle="collapse" aria-expanded="false"
+                data-target="#submenu-2" aria-controls="submenu-2" }}><i class="fa fa-home"></i>TRANG CHỦ</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3"
+                aria-controls="submenu-3"><i class="fas fa-mortar-board"></i>HỌC TẬP<i
+                  class="icon-hoc-tap fa fa-angle-down"></i></a>
+              <div id="submenu-3" class="div-menu-con collapse submenu" style="">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/sinhvien/ketquahoctap">Kết quả
+                      học tập
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/sinhvien/xemlich">Lịch học</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/sinhvien/xemlich">Lịch thi</a>
+                  </li>
+
+                </ul>
+              </div>
+
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4"
+                aria-controls="submenu-4"><i class="fa fa-check-square-o"></i>ĐĂNG KÝ HỌC PHẦN<i
+                  class="icon-dkhp-hoc-phan fa fa-angle-down"></i></a>
+              <div id="submenu-4" class="div-menu-con collapse submenu" style="">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/sinhvien/dangkyhocphan">Đăng ký
+                      học phần</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Chương trình khung</a>
+                  </li>
+
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5"
+                aria-controls="submenu-5"><i class="fa fa-cc-visa"></i>HỌC PHÍ<i
+                  class="icon-hoc-phi fa fa-angle-down"></i></a>
+              <div id="submenu-5" class="div-menu-con collapse submenu" style="">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Tra cứu công nợ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Thanh toán trực tuyến</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Phiếu thu tổng hợp</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+    </div>
+    {{! /* Main Thông Tin*/ }}
+    <div class="main-thong-tin-sv col">
+      {{! /* Thông tin học vấn */ }}
+      <div class="thong-tin-hoc-van row">
+        <div class="nav anh-sinh-vien col col-lg-3">
+            <img src="https://scontent.fdad3-4.fna.fbcdn.net/v/t1.6435-9/125804649_1537388186446618_1908998491894744380_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=fWPNR0pibKMAX9MsQ95&tn=4shL0tcfUZx9fRYh&_nc_ht=scontent.fdad3-4.fna&oh=00_AT_mPbnffoKAxRdDAuq2ApriWvhYkbugDJfGscLfH3s4xw&oe=61E62BEA" 
+            alt="ảnh thẻ sinh viên" class="img-reponsive">
+          <div class="rol">
+            <div class="form-group">
+              <div class="control-label">
+                <span lang="thongtinsinhvien-mssv">MSSV</span>:
+                <b>{{ttall.MaSinhVien}}</b>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="control-label">
+                <span lang="thongtinsinhvien-hovaten">Họ tên</span>:
+                <b>{{ttall.TenSinhVien}}</b>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="control-label">
+                <span lang="thongtinsinhvien-gioitinh">Giới tính</span>:
+                <b>{{ttall.GioiTinh}}</b>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="text-title">
+            <p>
+              Thông tin học vấn
+            </p>
+            <hr style="width:100%;color:#cccccc" />
+          </div>
+          <div class="main-thong-tin">
+            <div class="col-md-12">
+              <form class="form-horizontal">
+                <div class="form-body">
+                  <div class="form-group">
+                    <label class="col-md-3"><span lang="thongtinsinhvien-trangthai">Trạng thái</span>:
+                      <span class="bold"> {{ttall.TrangThai}} </span></label>
+                    <label class="col-md-3"><span lang="thongtinsinhvien-mahoso">Mã hồ sơ</span>:
+                      <span class="bold"></span></label>
+                    <label class=""><span lang="thongtinsinhvien-ngayvaotruong">Ngày vào trường</span>:
+                      <span class="bold">{{ngay ttall.NgayVaoTruong}}</span></label>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-6"><span lang="thongtinsinhvien-lophoc">Lớp học</span>:
+                      <span class="bold">{{ttall.TenLop}}</span></label>
+                    <label class=""><span lang="thongtinsinhvien-coso">Cơ sở</span>:
+                      <span class="bold">{{ttall.CoSo}}</span></label>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-6"><span lang="thongtinsinhvien-bacdaotao">Bậc đào tạo</span>:
+                      <span class="bold">{{ttall.BacDaoTao}}</span></label>
+                    <label class=""><span lang="thongtinsinhvien-loaidaotao">Loại hình đào tạo</span>:
+                      <span class="bold">{{ttall.LoaiHinhDaotao}}</span></label>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-6"><span lang="thongtinsinhvien-khoa">Khoa</span>:
+                      <span class="bold">{{ttall.TenKhoa}}</span></label>
+                    <label class=""><span lang="thongtinsinhvien-nganh">Ngành</span>:
+                      <span class="bold">{{ttall.TenChuyenNganh}}
+                      </span></label>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-6"><span lang="thongtinsinhvien-chuyennganh">Chuyên ngành</span>:
+                      <span class="bold">{{ttall.TenChuyenNganh}} - 7480103</span></label>
+                    <label class=""><span lang="thongtinsinhvien-khoahoc">Khóa
+                        học</span>:
+                      <span class="bold">2018 - 2019</span></label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{! /* Thông tin cá nhân */ }}
+      <div class="thong-tin-ca-nhan">
+        <div class="text-title">
+          <p>
+            Thông tin cá nhân
+          </p>
+          <hr style="width:100%;color:#cccccc" />
+        </div>
+        <div class="main-ca-nhan">
+          <div class="form-horizontal">
+            <div class="form-body">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-3"><span lang="thongtinsinhvien-ngaysinh">Ngày sinh</span>:
+                    <span class="bold">{{ngay ttall.NamSinh}}</span></label>
+                  <label class="col-md-3"><span lang="thongtinsinhvien-dantoc">Dân tộc</span>:
+                    <span class="bold">{{ttall.DanToc}}</span></label>
+                  <label class="col-md-3"><span lang="thongtinsinhvien-tongiao">Tôn giáo</span>:
+                    <span class="bold">{{ttall.TonGiao}}</span></label>
+                  <label class=""><span lang="thongtinsinhvien-khuvuc">Khu vực</span>:
+                    <span class="bold">{{ttall.KhuVuc}}</span></label>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-3"><span lang="thongtinsinhvien-socmnd">Số CMND</span>:
+                    <span class="bold">{{ttall.SoCMND}}</span></label>
+                  <label class="col-md-3"><span lang="thongtinsinhvien-ngaycap">Ngày cấp</span>:
+                    <span class="bold">{{ngay ttall.NgayCap}}</span></label>
+                  <label class="col-md-3"><span lang="thongtinsinhvien-noicap">Nơi cấp</span>:
+                    <span class="bold">{{ttall.NoiCap}}</span></label>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-3 col-xs-6"><span lang="thongtinsinhvien-doituong">Đối tượng</span>:
+                    <span class="bold">{{ttall.DoiTuong}}</span></label>
+                  <label class="col-md-6"><span lang="thongtinsinhvien-dienchinhsach">Diện chính sách</span>:
+                    <span class="bold">{{ttall.DienChinhSach}}</span></label>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-3"><span lang="thongtinsinhvien-ngayvaodoan">Ngày vào Đoàn</span>:
+                    <span class="bold">{{ngay ttall.NgayVaoDoan}}</span></label>
+                  <label class="col-md-6"><span lang="thongtinsinhvien-ngayvaodang">Ngày vào Đảng</span>:
+                    <span class="bold">{{ttall.NgayVaoDang}}</span></label>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-3"><span lang="thongtinsinhvien-sdt">Điện
+                      thoại</span>:
+                    <span class="bold">{{ttall.SDT}}</span></label>
+                  <label class="col-md-6"><span lang="thongtinsinhvien-email">Email</span>:
+                    <span class="bold">{{ttall.Email}}</span></label>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 col-xs-12"><span lang="thongtinsinhvien-diachilienlac">Địa chỉ liên hệ</span>:
+                    <span class="bold">{{ttall.DiaChiLienHe}}</span></label>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 col-xs-12"><span lang="thongtinsinhvien-noisinh">Nơi sinh</span>:
+                    <span class="bold">{{ttall.NoiSinh}}</span></label>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-12 col-xs-12"><span lang="thongtinsinhvien-hktt">Hộ khẩu thường trú</span>:
+                    <span class="bold">{{ttall.HoKhauThuongTru}}</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

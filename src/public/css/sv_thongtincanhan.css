@@ -1,0 +1,144 @@
+@charset "UTF-8";
+:root {
+  -gray: #6c757d;
+  -blue: #4da1e8;
+  -textbold: #333333;
+  -text: #667580;
+  -textblue: #1da1f2;
+  -line: #cccccc;
+  -textred: #ff0000;
+  -headertable: #f3f7f9;
+  -textmiddle: #003f65;
+  -textmiddle022: #0c6fbe;
+  -inputdadien: #e8f0fe;
+}
+
+.body-main-thong-tin-sv {
+  background-color: #e7ecf0;
+  justify-content: center;
+  /* height: 100%; */
+}
+.thong-tin-ca-nhan-sv {
+  width: 90%;
+  margin-top: 60px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* Menu Trái */
+.thong-tin-ca-nhan-sv .menu-left-sv {
+  margin-right: 15px;
+}
+.thong-tin-ca-nhan-sv .menu-left-sv .nav-link {
+  color: #667580;
+  font-size: 14px;
+  border-bottom: 0.5px solid #e7ecf0;
+  background-color: #ffffff;
+  width: 210px;
+  height: 50px;
+  padding-top: 15px;
+}
+.thong-tin-ca-nhan-sv .menu-left-sv .nav-link:hover {
+  color: #1da1f2;
+}
+.thong-tin-ca-nhan-sv .menu-left-sv .nav-link i {
+  margin: 0 5px 0 10px;
+}
+.thong-tin-ca-nhan-sv .menu-left-sv .nav-link .icon-hoc-tap {
+  margin-left: 90px;
+}
+.thong-tin-ca-nhan-sv .menu-left-sv .nav-link .icon-hoc-phi {
+  margin-left: 92px;
+}
+.thong-tin-ca-nhan-sv .menu-left-sv .nav-link .icon-dkhp-hoc-phan {
+  margin-left: 18px;
+}
+
+.thong-tin-ca-nhan-sv .menu-left-sv .div-menu-con .nav-link {
+  padding-left: 20px;
+}
+
+/* Main Thông Tin*/
+.thong-tin-ca-nhan-sv .main-thong-tin-sv {
+  background-color: #ffffff;
+}
+
+/* Thông tin học vấn */
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .thong-tin-hoc-van {
+  margin-top: 10px;
+  margin-bottom: 60px;
+}
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .anh-sinh-vien {
+  justify-content: center;
+}
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .anh-sinh-vien > img {
+  width: 130px;
+  height: 130px;
+  border-radius: 130px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .thong-tin-hoc-van {
+  color: #667580;
+  font-size: 14px;
+}
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .thong-tin-hoc-van p {
+  margin-left: 10px;
+}
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .text-title > p {
+  margin-bottom: -10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #667580;
+}
+.thong-tin-ca-nhan-sv
+  .main-thong-tin-sv
+  .thong-tin-hoc-van
+  .main-thong-tin
+  span {
+  color: #667580;
+}
+.thong-tin-ca-nhan-sv
+  .main-thong-tin-sv
+  .thong-tin-hoc-van
+  .main-thong-tin
+  .bold {
+  font-weight: bold;
+}
+
+/* Thông tin cá nhân */
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .thong-tin-ca-nhan {
+  margin-bottom: 60px;
+}
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .thong-tin-ca-nhan p {
+  margin-left: 10px;
+}
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .thong-tin-ca-nhan .main-ca-nhan span {
+  color: #667580;
+}
+.thong-tin-ca-nhan-sv
+  .main-thong-tin-sv
+  .thong-tin-ca-nhan
+  .main-ca-nhan
+  .bold {
+  font-weight: bold;
+}
+
+/* Quan Hệ Gia Đình */
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .quan-he-gia-dinh {
+  margin-bottom: 60px;
+}
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .quan-he-gia-dinh p {
+  margin-left: 10px;
+}
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .quan-he-gia-dinh .main-quan-he span {
+  color: #667580;
+}
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .quan-he-gia-dinh .main-quan-he .bold {
+  font-weight: bold;
+}
+
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .main-ca-nhan,
+.thong-tin-ca-nhan-sv .main-thong-tin-sv .main-quan-he {
+  margin-left: 10px;
+}

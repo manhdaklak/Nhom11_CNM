@@ -1,0 +1,265 @@
+{{>headerQuanLy}}
+<div class="navbar quan-ly-mon-hoc">
+  <div class="nav quan-ly-mon-hoc-1">
+    <div class="col-sm-3 " >
+        {{>menubar}}
+
+    </div>
+    <div class="col-sm-9 col-lg-9" style="background-color: white;">
+      <div class="container mt-3">
+        <h3>Quản lý học phần</h3>
+        <br />
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#home">Học Phần</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#menu1">Danh Sách Học Phần</a>
+          </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div id="home" class="container tab-pane fade"><br />
+            <h5>Thông tin Học Phần</h5>
+              <form  action="" style="border: 1px solid black; padding: 10px;">
+                <div class="row">
+                   <div class="col-lg-6">
+                    <div class="form-group">
+                       <label for="sel1">Khoa/ Viện:</label>
+                        <select class="form-control" id="ChonKhoa" >
+                            <option>Chọn khoa</option>
+                        </select>
+                    </div>
+
+                  </div>
+                   <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="sel1">Ngành:</label>
+                      <select class="form-control" id="ChonChuyenNganh" >
+                      </select>
+                    </div>
+
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="sel1">Học Kỳ:</label>
+                      <select class="form-control" id="HocKy">
+                        <option>Chọn học kỳ</option>
+                        <option>Học kỳ 1</option>
+                        <option>Học kỳ 2</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="sel1">Năm Học:</label>
+                      <select class="form-control" id="NamHoc">
+                        <option>Chọn năm học</option>
+                        <option value="2018-2019">2018-2019</option>
+                        <option value="2019-2020">2019-2020</option>
+                        <option value="2020-2021">2020-2021</option>
+                        <option value="2021-2022">2021-2022</option>
+                      </select>
+                    </div>
+                  </div>
+                   <div class="col-lg-4">
+                    <div class="form-group">
+                      <label for="sel1">Mã Học Phần:</label>
+                      <input type="text" class="form-control" placeholder="12345678">
+                    </div>
+                  </div>
+                   <div class="col-lg-4">
+                    <div class="form-group">
+                      <label for="sel1">Tên Môn Học/Học Phần:</label>
+                      <select class="form-control" id="TenHocPhan">
+                        <option>Chọn Tên Môn Học</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                      <label for="sel1">Mã Môn Học:</label>
+                      <select class="form-control" id="MaMonHoc">
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-3">
+                    <button id="btnThemHocPhan" onclick="ThemHocPhan(this)" class="btn btn-primary">THÊM</button>
+                  </div>
+                   <div class="col-lg-3">
+                    <button type="button" class="btn btn-warning">CHỈNH SỬA</button>
+                  </div>
+                   <div class="col-lg-3">
+                    <button type="button" class="btn btn-secondary">LÀM MỚI</button>
+                  </div>
+                </div>
+              </form>
+          </div>
+          <div id="menu1" class="container tab-pane active"><br />
+            <form action="">
+              <div class="card mb-4">
+                <div class="card-header">
+                  <i class="fas fa-table me-1"></i>
+                 Danh Sách Học Phần
+                </div>
+                <div class="card-body">
+                  <table class="table table-bordered" id="table_id">
+                    <thead>
+                      <tr>
+                        <th>STT</th>
+                        <th>Mã Học Phần</th>
+                        <th>Tên Học phần</th>
+                        <th>Tên Học Kỳ</th>
+                        <th>Năm Học</th>
+                        <th>Tên Chuyên Ngành</th>
+                        <th>Thao Tác</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {{#each hocphans}}
+                        <tr>
+                          <td scope="row">{{sum @index 1}}</td>
+                          <td>{{this.MaHocPhan}}</td>
+                          <td>{{this.TenMonHoc}}</td>
+                          <td>{{this.TenHocKy}}</td>
+                          <td>{{this.Nam}}</td>
+                          <td>{{this.TenChuyenNganh}}</td>
+                          <td colspan="3">
+                            <a class="btn btn-success" href="/quanly-hocphan/edit/{{this.MaSinhVien}}">Chỉnh Sửa</a>
+                            <a class="btn btn-danger"
+                            href="/quanly-hocphan/delete?MaHocPhan={{this.MaHocPhan}}" onclick="return confirm ('Bạn có chắc muốn xóa không ?')">
+                            Xóa</a>
+                          </td>
+                        </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function () {
+    // hiển thị thông tin về các khoa
+    function loadKhoa() {
+        $.ajax({
+            url: '/quanly-hocphan/loadkhoa',
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+                    let themKhoa = `
+                            <option value = "`+ result[i].MaKhoa + `">` + result[i].TenKhoa + `</option>`;
+                    $('#ChonKhoa').append(themKhoa);
+                }
+            }
+
+        });
+    }
+    loadKhoa();
+
+    // khi click chọn khoa sẽ hiển thị ra chuyên ngành tương ứng với khoa
+    $('#ChonKhoa').change(function () {
+        $("#ChonChuyenNganh").empty();
+        let MaKhoa = $("#ChonKhoa").val();
+        $.ajax({
+            url: '/quanly-hocphan/loadchuyennganh/' + MaKhoa,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+                    let themChuyeNganh = `
+                        <option value = "`+ result[i].MaChuyenNganh + `">` + result[i].TenChuyenNganh + `</option>`;
+                    $('#ChonChuyenNganh').append(themChuyeNganh);
+                }
+            }
+
+        });
+    })
+
+    // khi chọn chuyên ngành sẽ hiển thị ra lớp danh nghĩa tương ứng
+    $('#ChonChuyenNganh').change(function () {
+        $('#TenHocPhan').empty();
+        $('#MaMonHoc').empty();
+
+        let MaChuyenNganh = $('#ChonChuyenNganh').val();
+        $.ajax({
+            url: '/quanly-hocphan/loadmonhoc/' + MaChuyenNganh,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+                    let temhp = ` <option value = "` + result[i].TenMonHoc + `">` + result[i].TenMonHoc + `</option>`;;
+                    $('#TenHocPhan').append(temhp);
+                }
+            }
+        });
+        $.ajax({
+            url: '/quanly-hocphan/loadmonhoc/' + MaChuyenNganh,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+                    let mamh = ` <option value = "` + result[i].MaMonHoc + `">` + result[i].MaMonHoc + `</option>`;;
+                    $('#MaMonHoc').append(mamh);
+                }
+            }
+        });
+    });
+
+    // khi click chọn khoa sẽ hiển thị ra chuyên ngành tương ứng với khoa
+    $('#TenHocPhan').change(function () {
+        $("#MaMonHoc").empty();
+        let TenMonHoc = $("#TenHocPhan").val();
+        $.ajax({
+            url: '/quanly-hocphan/loadmamonhoc/' + TenMonHoc,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+                    let mamh = ` <option value = "` + result[i].MaMonHoc + `">` + result[i].MaMonHoc + `</option>`;;
+                    $('#MaMonHoc').append(mamh);
+                }
+            }
+
+        });
+    })
+
+});
+// them sinh vien moi
+function ThemHocPhan() {
+    debugger;
+    var mamonhoc = $('#MaMonHoc').val();
+    var tenhocky = $('#HocKy').val();
+    var nam = $('#NamHoc').val();
+
+    $.ajax({
+        url: '/quanly-hocphan/api',
+        type: 'post',
+        data:
+        {
+            mamonhoc: mamonhoc,
+            tenhocky: tenhocky,
+            nam: nam
+        },
+        dataType: 'json',
+        success: function () {
+            window.location.href = '/quanly-hocphan/'
+        }
+    });
+}
+</script>

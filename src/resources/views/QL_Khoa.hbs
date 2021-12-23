@@ -1,0 +1,162 @@
+{{>headerQuanLy}}
+<div class="navbar quan-ly-mon-hoc">
+    <div class="nav quan-ly-mon-hoc-1">
+        {{!-- ==================Menu --}}
+        <div class="col-sm-3 ">
+            {{>menubar}}
+        </div>
+
+
+        <div class="col-sm-9 col-lg-9" style="background-color: white;">
+            <div class="container mt-3">
+                <h3>Quản Lý Khoa/ Viện</h3>
+                <br />
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#home">Khoa/ Viện</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu1">Danh Sách Khoa/ Viện</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="home" class="container tab-pane active"><br />
+                        <h5>Thông tin khoa/ viện</h5>
+                        <form action="" method="" enctype="multipart/form-data"
+                            style="border: 1px solid black; padding: 10px;">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Mã khoa/ viện: </label>
+                                        <input type="text" name="MaKhoa" value="{{khoaChinhSua.MaKhoa}}"
+                                            class="form-control" placeholder="Mã khoa...">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Tên Khoa/ Viện: </label>
+                                        <input type="text" value="{{khoaChinhSua.TenKhoa}}" name="TenKhoa"
+                                            class="form-control" placeholder="Tên khoa...">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Khoa/ Viện:</label>
+                                        <select class="form-control" id="ChonKhoaVien">
+                                            <option value="Khoa"> Khoa</option>
+                                            <option value="Viện">Viện</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <button type="button" onclick="ThemKhoaVien(this);" 
+                                        class="btn btn-primary">THÊM</button>
+                                </div>
+                                <div class="col-lg-3">
+                                    <button type="button" onclick="LuuChinhSuaKhoa(this);" class="btn btn-warning">CHỈNH
+                                        SỬA</button>
+                                </div>
+                                <div class="col-lg-4" style="padding-right: 70px;">
+                                    <button type="button" class="btn btn-secondary">LÀM MỚI</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="menu1" class="container tab-pane fade"><br />
+                        <form action="">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-table me-1"></i>
+                                    Bảng hiển thị danh sách khoa/ viện
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-bordered" id="table_id">
+                                        <thead>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Mã Khoa Viện</th>
+                                                <th>Tên Khoa/ Viện</th>
+                                                <th>Khoa/ Viện</th>
+                                                <th>Thao Tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each khoas}}
+                                            <tr>
+                                                <td>{{sum @index 1}}</td>
+                                                <td>{{this.MaKhoa}}</td>
+                                                <td>{{this.TenKhoa}}</td>
+                                                <td>{{this.KhoaVien}}</td>
+                                                <td colspan="2">
+                                                    <a class="btn btn-info" 
+                                                        href="/quanly-khoa/chinhsua/{{this.MaKhoa}}">Chỉnh Sửa </a>
+                                                    <a class="btn btn-danger"
+                                                        href="/quanly-khoa/delete?MaKhoa={{this.MaKhoa}}"
+                                                        onclick="return confirm ('Bạn có chắc muốn xóa không ?')">
+                                                        Xóa</a>
+                                                </td>
+                                                {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function ThemKhoaVien() {
+            let MaKhoa = $('input[name="MaKhoa"]').val();
+            let TenKhoa = $('input[name="TenKhoa"]').val();
+            let KhoaVien = $('#ChonKhoaVien').val();
+
+            if (MaKhoa == "" || TenKhoa == "") {
+                alert("Vui lòng nhập thông tin");
+            } else {
+                $.ajax({
+
+                    url: '/quanly-khoa/themkhoa',
+                    type: 'post',
+                    data: { MaKhoa: MaKhoa, TenKhoa: TenKhoa, KhoaVien: KhoaVien },
+                    dataType: 'json',
+                    success: function () {
+                        window.location.href = '/quanly-khoa/'
+                    }
+                });
+            }
+        }
+
+        function LuuChinhSuaKhoa() {
+
+            let MaKhoa = $('input[name="MaKhoa"]').val();
+            let TenKhoa = $('input[name="TenKhoa"]').val();
+            let KhoaVien = $('#ChonKhoaVien').val();
+
+            if (MaKhoa == "" || TenKhoa == "") {
+                alert("Vui lòng nhập thông tin");
+            } else {
+                $.ajax({
+
+                    url: '/quanly-khoa/chinhsua',
+                    type: 'post',
+                    data: { MaKhoa: MaKhoa, TenKhoa: TenKhoa, KhoaVien: KhoaVien },
+                    dataType: 'json',
+                    success: function () {
+                        window.location.href = '/quanly-khoa/'
+                    }
+                });
+            }
+        }
+
+    </script>
+</div>

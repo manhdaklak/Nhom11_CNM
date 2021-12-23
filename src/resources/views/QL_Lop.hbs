@@ -1,0 +1,325 @@
+{{>headerQuanLy}}
+<div class="navbar quan-ly-mon-hoc">
+  <div class="nav quan-ly-mon-hoc-1">
+    {{!-- ==================Menu --}}
+    <div class="col-sm-3 " >
+        {{>menubar}}
+    </div>
+
+    <div class="col-sm-9 col-lg-9" style="background-color: white;">
+      <div class="container mt-3">
+        <h3>Quản Lý Lớp Học</h3>
+        <br />
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#home">Lớp Học</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu1">Danh Sách Lớp Học</a>
+          </li>
+        </ul>
+    <div class="tab-content">
+          <div id="home" class="container tab-pane active"><br />
+            <h5>Thông tin lớp học</h5>
+              <form  action="" style="border: 1px solid black; padding: 10px;">
+                <div class="row">
+
+                    <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Mã Khoa/ Viện:</label>
+                                        <select class="form-control" id="sel1">
+                                            <option>183761</option>
+                                            <option>129461</option>
+                                            <option>122341</option>
+                                            <option>177461</option>
+                                            <option>157341</option>
+                                            <option>129801</option>
+                                            <option>199801</option>
+                                            <option>165701</option>
+                                            <option>177771</option>
+                                            <option>172551</option>
+                                            <option>192511</option>
+                                            <option>143421</option>
+                                            <option>109871</option>
+                                            <option>167761</option>
+                                            <option>164461</option>
+                                            <option>133361</option>
+
+                                        </select>
+                                    </div>
+                    </div>
+
+                      <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Tên Khoa/ Viện:</label>
+                                        <select class="form-control" id="sel1">
+                                            <option> Khoa Công Nghệ Thông Tin</option>
+                                           <option>Khoa Công Nghệ Cơ Khí</option>
+                                           <option>Khoa Công Nghệ Điện</option>
+                                           <option>Khoa Công Nghệ Điện Tử</option>
+                                           <option>Khoa Công Nghệ Động Lực</option>
+                                           <option>Khoa Công Nghệ Nhiệt - Lạnh</option>
+                                           <option>Khoa Công Nghệ May - Thời Trang</option>
+                                           <option>Khoa Công Nghệ Hóa Học</option>
+                                           <option>Khoa Kế Toán - Kiểm Toán</option>
+                                           <option>Khoa Khoa Học Cơ Bản</option>
+                                           <option>Khoa Lý Luận Chính Trị</option>
+                                           <option>Khoa Ngoại Ngữ</option>
+                                           <option>Khoa Quản Trị Kinh Doanh</option>
+                                           <option>Khoa Tài Chính - Ngân Hàng</option>
+                                           <option>Khoa Thương Mại - Du Lịch</option>
+                                           <option>Khoa Kỹ Thuật Xây Dựng</option>
+                                           <option>Khoa Luật</option>
+                                           <option>Viện Công Nghệ Sinh Học và Thực Phẩm</option>
+                                           <option>Viện Khoa Học Công Nghệ và Quản Lý Môi TRường</option>
+                                        </select>
+                                    </div>
+                    </div>
+                     <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Mã Chuyên ngành:</label>
+                                        <select class="form-control" id="sel1">
+                                            <option>464761</option>
+                                            <option>444461</option>
+                                            <option>434267</option>
+                                            <option>488421</option>
+                                            <option>473563</option>
+                                            <option>434342</option>
+                                            <option>487921</option>
+                                            <option>453261</option>
+                                            <option>409281</option>
+                                            <option>487633</option>
+                                            <option>433667</option>
+                                            <option>498772</option>
+                                            <option>499782</option>
+                                            <option>492861</option>
+                                            <option>488831</option>
+                                        </select>
+                                    </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1"> Tên chuyên ngành:</label>
+                                        <select class="form-control" id="sel1">
+                                            <option>Công nghệ kỹ thuật điện, điện tử</option>
+                                            <option>Năng lượng tái tạo</option>
+                                            <option>Công nghệ kỹ thuật điều khiển và tự động hóa</option>
+                                            <option>Robot và hệ thống điều khiển thông minh</option>
+                                            <option>Công nghệ kỹ thuật điện tử - viễn thông</option>
+                                            <option>Công nghệ kỹ thuật máy tính</option>
+                                            <option>IOT và Trí tuệ nhân tạo ứng dụng</option>
+                                            <option>Công nghệ kỹ thuật cơ khí</option>
+                                            <option>Công nghệ kỹ thuật cơ điện tử</option>
+                                            <option>Công nghệ chế tạo máy</option>
+                                            <option>Công nghệ kỹ thuật ô tô</option>
+                                            <option>Công nghệ kỹ thuật nhiệt</option>
+                                            <option>Kỹ thuật xây dựng</option>
+                                            <option>Kỹ thuật xây dựng công trình giao thông</option>
+                                            <option>Công nghệ dệt, may</option>
+                                            <option>Công nghệ thông tin</option>
+                                            <option>Kỹ thuật phần mềm</option>
+                                            <option>Khoa học máy tính</option>
+                                            <option>Hệ thống thông tin</option>
+                                            <option>Khoa học dữ liệu</option>
+                                            <option>Công nghệ kỹ thuật hóa học</option>
+                                            <option>Kỹ thuật hóa phân tích</option>
+                                            <option>Công nghệ thực phẩm</option>
+                                            <option>Dinh dưỡng và Khoa học thực phẩm</option>
+                                            <option>Đảm bảo chất lượng và an toàn thực phẩm</option>
+                                            <option>Công nghệ sinh học</option>
+                                            <option>Quản lý đất đai</option>
+                                            <option>Kinh tế tài nguyên thiên nhiên</option>
+                                            <option>Quản lý tài nguyên môi trường</option>
+                                            <option>Công nghệ kỹ thuật môi trường</option>
+                                            <option>Kế toán</option>
+                                            <option>Kiểm toán</option>
+                                            <option>Tài chính ngân hàng</option>
+                                            <option>Tài chính doanh nghiệp</option>
+                                            <option>Quản trị kinh doanh</option>
+                                            <option>Quản trị nguồn nhân lực</option>
+                                            <option>Logistics</option>
+                                            <option>Quản lý chuỗi cung ứng</option>
+                                            <option>Marketing</option>
+                                            <option>Quản trị dịch vụ du lịch và lữ hành</option>
+                                            <option>Quản trị khách sạn</option>
+                                            <option>Quản trị nhà hàng và dịch vụ ăn uống</option>
+                                            <option>Kinh doanh quốc tế</option>
+                                            <option>Thương mại điện tử</option>
+                                            <option>Ngôn ngữ anh</option>
+                                            <option>Luật kinh tế</option>
+                                            <option>Luật quốc tế</option>
+                                        </select>
+                                    </div>
+                        </div>
+
+
+                          <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Khóa:</label>
+                                        <select class="form-control" id="sel1">
+                                            <option>HK1 (2018-2019)</option>
+                                            <option>HK2 (2018-2019)</option>
+                                            <option>HK3 (2018-2019)</option>
+                                            <option>HK1 (2019-2020)</option>
+                                            <option>HK2 (2019-2020)</option>
+                                            <option>HK3 (2019-2020)</option>
+                                            <option>HK1 (2020-2021)</option>
+                                            <option>HK2 (2020-2021)</option>
+                                            <option>HK3 (2020-2021)</option>
+                                            <option>HK1 (2021-2022)</option>
+                                            <option>HK2 (2021-2022)</option>
+                                            <option>HK3 (2021-2022)</option>
+                                            <option>HK1 (2022-2023)</option>
+                                            <option>HK2 (2022-2023)</option>
+                                            <option>HK3 (2022-2023)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Số lượng sinh viên: </label>
+                                        <input type="text" class="form-control" placeholder="0" readonly >
+                                    </div>
+
+                                </div>
+
+                             <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Mã Giảng Viên chủ nhiệm:</label>
+                                        <select class="form-control" id="sel1">
+                                            <option>156781</option>
+                                            <option>145671</option>
+                                            <option>138631</option>
+                                            <option>136541</option>
+                                            <option>146821</option>
+                                            <option>124521</option>
+                                            <option>123411</option>
+                                            <option>109821</option>
+                                            <option>198761</option>
+                                            <option>109281</option>
+                                            <option>134561</option>
+                                            <option>198261</option>
+                                            <option>112121</option>
+                                            <option>198701</option>
+                                        </select>
+                                    </div>
+                             </div>
+
+                               <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Tên Giảng Viên chủ nhiệm:</label>
+                                        <select class="form-control" id="sel1">
+                                            <option>Bùi Thị Mỹ Duyên</option>
+                                            <option>Đỗ Thị Thu Diệp</option>
+                                            <option>Nguyễn Đức Mạnh</option>
+                                            <option>Tôn Long Phước</option>
+                                            <option>Nguyễn Trọng Tiến</option>
+                                            <option>Huỳnh Hữu Nghĩa</option>
+                                            <option>Chế Gia Hân</option>
+                                            <option>Chế Phương Trinh</option>
+                                            <option>Đặng Thùy Mai</option>
+                                            <option>Thái Thị Hoàng Huy</option>
+                                            <option>Nguyễn Minh Anh</option>
+                                            <option>Phạm Thị Thúy</option>
+                                            <option>Trần Cao Tường</option>
+                                            <option>Bùi Tuệ An</option>
+                                            <option>Nguyễn Sáu</option>
+                                            <option>Bùi Thị Mỹ Dung</option>
+                                            <option>Nguyễn Thị Linh Nhi</option>
+                                            <option>Bùi Tiến Dũng</option>
+                                            <option>Đặng Hữu Phúc</option>
+                                            <option>Trương Khắc Tùng</option>
+                                            <option>Đoàn Thị Như Thảo</option>
+                                            <option>Nguyễn Thị Khánh My</option>
+                                            <option>Lê Văn Hai</option>
+                                            <option>Nguyễn Trần Kỷ</option>
+                                            <option>Trần Văn Vinh</option>
+                                            <option>Đăng Văn Thuận</option>
+                                            <option>Hồ Thị Vân Anh</option>
+                                            <option>Dương Thị Hường</option>
+                                        </select>
+                                    </div>
+                             </div>
+
+                            <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Mã lớp Học : </label>
+                                        <input type="text" class="form-control" placeholder="445621" readonly >
+                                    </div>
+
+                            </div>
+
+                               <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Tên lớp học: </label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+
+                                </div>
+
+         </div>
+
+          <div class="row">
+                  <div class="col-lg-2">
+                    <button type="button" class="btn btn-primary">THÊM</button>
+                  </div>
+                   <div class="col-lg-2">
+                    <button type="button" class="btn btn-warning">CHỈNH SỬA</button>
+                  </div>
+                   <div class="col-lg-2">
+                    <button type="button" class="btn btn-danger">XÓA</button>
+                  </div>
+                   <div class="col-lg-2">
+                    <button type="button" class="btn btn-secondary">LÀM MỚI</button>
+                  </div>
+                </div>
+              </form>
+          </div>
+
+          <div id="menu1" class="container tab-pane fade"><br />
+            <form action="">
+              <div class="card mb-4">
+                <div class="card-header">
+                  <i class="fas fa-table me-1"></i>
+                 Bảng hiển thị danh sách lớp học
+                </div>
+                <div class="card-body">
+                  <table class="table table-bordered" id="table_id">
+                    <thead>
+                      <tr>
+                        <th>STT</th>
+                        <th>Mã Lớp Học</th>
+                        <th>Tên Lớp Học</th>
+                        <th>Tên Khoa/ Viện</th>
+                        <th>Tên Chuyên Ngành</th>
+                        <th>Khóa Học</th>
+                        <th>Giảng Viên Chủ Nhiệm</th>
+                        <th>Số Lượng Giảng Viên</th>
+                        <th>Thao Tác</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>422003622</td>
+                        <td>DHKTPM14CTT</td>
+                        <td>Công nghệ thông tin</td>
+                        <td>Kỹ thuật phần mềm</td>
+                        <td>2018-2019</td>
+                        <td>Bùi Thị Mỹ Duyên</td>
+                        <td>40</td>
+                        <td colspan="3">
+                          <a href="#">Xem Chi tiết - </button>
+                          <a href="#">Chỉnh Sửa - </button>
+                          <a href="#">Xóa - </button>
+                          <a href="#">Danh Sách Sinh Viên</button>
+                        </td>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </form>
+          </div>

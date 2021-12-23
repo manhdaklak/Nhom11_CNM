@@ -1,0 +1,158 @@
+{{>headerQuanLy}}
+<div class="navbar quan-ly-mon-hoc">
+    <div class="nav quan-ly-mon-hoc-1">
+        {{!-- ==================Menu --}}
+        <div class="col-sm-3 ">
+            {{>menubar}}
+        </div>
+        <div class="col-sm-9 col-lg-9" style="background-color: white;">
+            <div class="container mt-3">
+                <h3>Quản Lý Chuyên Ngành</h3>
+                <br />
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#home">Chuyên Ngành</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu1">Danh Sách Chuyên Ngành</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="home" class="container tab-pane active"><br />
+                        <h5>Thông tin chuyên ngành</h5>
+                        <form action="" style="border: 1px solid black; padding: 10px;">
+                            <div class="row">
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1"> Khoa/ Viện:</label>
+                                        <select class="form-control" id="HienThiKhoa">
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Mã chuyên ngành: </label>
+                                        <input type="text" value="{{chuyennganhchon.MachuyenNganh}}" name="MaChuyenNganh" class="form-control" placeholder="KTPM">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1"> Tên chuyên ngành:</label>
+                                        <input type="text" class="form-control" placeholder="Kỹ thuật phần mềm"
+                                            name="TenChuyenNganh" value="{{chuyennganhchon.TenChuyenNganh}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <button type="button" onclick="ThemChuyenNganhMoi(this);"
+                                        class="btn btn-primary">THÊM</button>
+                                </div>
+                                <div class="col-lg-3">
+                                    <button type="button" onclick="ChinhSuaTenChuyenNganh(this);"
+                                        class="btn btn-warning">CHỈNH SỬA</button>
+                                </div>
+                                <div class="col-lg-4">
+                                    <button type="button" onclick="" class="btn btn-secondary">LÀM MỚI</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="menu1" class="container tab-pane fade"><br />
+                        <form action="">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-table me-1"></i>
+                                    Bảng hiển thị danh sách chuyên ngành
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-bordered" id="table_id">
+                                        <thead>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Mã Chuyên Ngành</th>
+                                                <th>Tên Chuyên Ngành</th>
+                                                <th>Tên Khoa/ Viện</th>
+                                                <th class="col-12">Thao Tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each chuyennganhs}}
+                                            <tr>
+                                                <td>{{sum @index 1}}</td>
+                                                <td>{{this.MaChuyenNganh}}</td>
+                                                <td>{{this.TenChuyenNganh}}</td>
+                                                <td>{{this.TenKhoa}}</td>
+                                                <td colspan="3">
+                                                    <a class="btn btn-info"
+                                                        href="/quanly-chuyennganh/chinhsuachuyennganh/{{this.MaChuyenNganh}}">Chỉnh
+                                                        sửa </a>
+                                                    <a class="btn btn-danger" style="width: 80px; margin-left: 10px;"
+                                                        href="/quanly-chuyennganh/xoachuyennganh?MaChuyenNganh={{this.MaChuyenNganh}}"
+                                                        onclick="return confirm ('Bạn có chắc muốn xóa không ?')">Xóa</a>
+                                                </td>
+                                                {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            HienThiThongTinKhoa();
+
+
+        });
+
+        // thêm 1 khoa mới
+        function ThemChuyenNganhMoi() {
+
+            let MaKhoa = $('#HienThiKhoa').val();
+            let MaChuyenNganh = $('input[name="MaChuyenNganh"]').val();
+            let TenChuyenNganh = $('input[name="TenChuyenNganh"]').val();
+
+            $.ajax({
+                url: '/quanly-chuyennganh/themchuyennganh',
+                type: 'post',
+                data: { MaKhoa: MaKhoa, MaChuyenNganh: MaChuyenNganh, TenChuyenNganh: TenChuyenNganh },
+                dataType: 'json',
+                success: function () {
+                    window.location.href = '/quanly-chuyennganh'
+                }
+            });
+        }
+        // hiển thị thông tin khoa gồm MaKhoa và Tên Khoa
+        function HienThiThongTinKhoa() {
+            $.ajax({
+                url: '/quanly-chuyennganh/hienthikhoa',
+                type: 'get',
+                dataType: 'json',
+
+            }).done(function (result) {
+                if (result.length > 0) {
+                    for (let i = 0; i < result.length; i++) {
+
+                        let themThngTinKhoa = `
+                          <option value="`+ result[i].MaKhoa + `">` + result[i].TenKhoa + `</option> `;
+
+                        $('#HienThiKhoa').append(themThngTinKhoa);
+                    }
+                }
+            });
+        }
+
+    </script>
+</div>

@@ -1,0 +1,45 @@
+<style>
+  .header {
+    display: none;
+  }
+</style>
+<div class="main-login-ql">
+  <header>
+    <div class="navbar header-login-ql">
+      <img src="https://cnm-lab3.s3.ap-southeast-1.amazonaws.com/hotrosinhvienIUH/Logo_IUH.png" alt="logo_header"
+        class="logo-header" style="height: 100%" />
+      <div class="title-header">
+        <span class="title-header-top">TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP TP. HỒ CHÍ MINH</span>
+        <span class="title-header-bottom">QUẢN TRỊ HỆ THỐNG</span>
+      </div>
+    </div>
+  </header>
+  <body>
+    <div class="nav body-login-ql col-lg-12">
+      <div class="form-dang-nhap">
+        <form action="/quanly/" id="form-login" method="POST">
+          <div class="form-login">
+            <div class="text-center" style="margin: 60px 0 40px 0">
+              <span class="title-form">QUẢN TRỊ HỆ THỐNG </br> SINH VIÊN</span>
+            </div>
+            <h4 style="margin-bottom: 30px">ĐĂNG NHẬP HỆ THỐNG</h4>
+            <div class="group text-center">
+              <input autocomplete="new-password" class="input" id="UserName" name="MaGiangVien" placeholder="Nhập mã"
+                required="required" type="text" value="" />
+              <input autocomplete="new-password" class="input" id="Password" name="MatKhau" placeholder="Nhập mật khẩu"
+                required="required" type="password" />
+            </div>
+            <div class="group text-center">
+              {{#if messages.error}}
+              <p style="color:red">
+                {{messages.error}}
+              </p>
+              {{/if}}
+            </div>
+            <input type="submit" class="button btnDangNhap" value="ĐĂNG NHẬP" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</div>

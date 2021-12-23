@@ -1,0 +1,54 @@
+<style>
+  .header {
+    display: none;
+  }
+</style>
+<div class="main-login-sv">
+  <header>
+    <div class="navbar navbar-expand-lg header-login-sv">
+      <img src="https://sv.iuh.edu.vn/Content/AConfig/images/sv_header_login.png" alt="logo_header"
+        class="logo-header" />
+    </div>
+  </header>
+
+  <body>
+    <div class="nav body-login-sv col-lg-12">
+      <div class="form-dang-nhap">
+        <form id="form-login" method="POST" action="/sinhvien/home">
+          <div class="form-login">
+            <div class="text-center">
+              <img src="https://sv.iuh.edu.vn/Content/loginnews/images/congthongtinsinhvien.png" style="
+                      max-width: 100%;
+                      max-height: 95px;
+                      margin: 40px 0 30px 0;
+                    " />
+            </div>
+            <h4 style="margin-bottom: 20px">ĐĂNG NHẬP HỆ THỐNG</h4>
+            <div class="group text-center">
+              <input autocomplete="new-password" class="input" id="UserName" name="MaSinhVien"
+                placeholder="Nhập mã sinh viên" required="required" type="text" value="" />
+              <input autocomplete="new-password" class="input" id="Password" name="MatKhau" placeholder="Nhập mật khẩu"
+                required="required" type="password" />
+              <div class="text-right" style="width: 95%">
+                <label style="font-size: 12px; margin-bottom: 30px">
+                  <input id="IsSinhVienDaTotNghiep" name="IsSinhVienDaTotNghiep" type="checkbox" value="true" />
+                  Đã tốt nghiệp</label>
+                <label for="">
+                  {{#if messages.error}}
+                  <p style="color:red">
+                    {{messages.error}}
+                  </p>
+                  {{/if}}
+                </label>
+              </div>
+            </div>
+            <input type="submit" class="button btnDangNhap" value="ĐĂNG NHẬP" />
+          </div>
+        </form>
+        <div class="form-footer text-right" style="width: 95%">
+          <span class="create"><a href="" data-panel=".panel-tracuu" class="lnk-toggler">Dành cho phụ huynh</a></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</div>

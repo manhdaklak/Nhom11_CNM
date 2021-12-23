@@ -1,0 +1,104 @@
+{{>headerQuanLy}}
+<div class="navbar quan-ly-mon-hoc">
+    <div class="nav quan-ly-mon-hoc-1">
+        <div class="col-sm-3 " >
+            {{>menubar}}
+        </div>
+        <div class="col-sm-9 col-lg-9" style="background-color: white;">
+
+            <div class="container mt-3">
+                <h3>Quản lý lớp học phần</h3>
+                <div class="dropdown-divider"></div>
+                <div class="row" id="lop_dssv">
+                    <div class="col-sm-4 col-lg-4">
+
+                        <h6>Môn: {{tt.TenMonHoc}}</h6>
+                        <h6>Giáo Viên: {{tt.TenGiangVien}}</h6>
+                    </div>
+                    <div class="col-sm-4 col-lg-4">
+                        <h6>Mã Lớp Học Phần: {{tt.MaLopHP}}</h6>
+                        <h6>Học Kỳ: {{tt.TenHocKy}}({{tt.Nam}})</h6>
+                    </div>
+                    <div class="col-sm-4 col-lg-4">
+                        <h6>Lớp Học Phần: {{tt.TenLopHP}}</h6>
+                        <h6>Khoa: {{tt.TenKhoa}}</h6>
+                    </div>
+                    
+                </div>
+                <div class="btnDiemSo text-right">
+                        <a href="#" class="btn btn-success">Điểm số</a>
+                </div>
+                <div class="text-right"  id="printableArea">
+                    <a href="" class="btn btn-action" id="btn_InDDK" onclick="printDiv('printableArea')"
+                        style="width: 50px;background-color: #1da1f2; color:white; margin-bottom: 5px; margin-top: 10px">
+                        <i class="fa fa-print" aria-hidden="true" ></i>
+                    </a>
+                </div>
+                <form action="">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            
+                            <table class="table table-bordered" id="table_id">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th style="width: 200px;">Mã số sinh viên</th>
+                                        <th style="width: 250px;">Họ tên</thư>
+                                        <th style="width: 150px;">Giới tính</th>
+                                        <th style="width: 200px;">Ngày sinh</th>
+                                        <th>Ghi chú</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each dssv}}
+                                  <tr>
+                                        <td>{{sum @index 1}}</td>
+                                        <td>{{this.MaSinhVien}}</td>
+                                        <td>{{this.TenSinhVien}}</td>
+                                        <td>{{this.GioiTinh}}</td>
+                                        <td>{{ngay this.NamSinh}}</td>
+                                        <td></td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                        {{!-- <div class="card-body">
+                            <table class="table table-bordered" id="table_id">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Mã số sinh viên</th>
+                                        <th>Học Tên</th>
+                                        <th>Lớp</th>
+                                        <th>Nhóm</th>
+                                        <th>Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>18067571</td>
+                                        <td>Nguyễn Đức Mạnh</td>
+                                        <td>DHKTPM14CTT</td>
+                                        <td>1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div> --}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+    function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+     document.body.innerHTML = printContents;
+     window.print();
+     document.body.innerHTML = originalContents;
+    }
+</script>

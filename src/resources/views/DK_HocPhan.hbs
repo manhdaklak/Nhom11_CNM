@@ -1,0 +1,630 @@
+{{>headerQuanLy}}
+<div class="navbar quan-ly-mon-hoc">
+    <div class="nav quan-ly-mon-hoc-1">
+        <div class="col-sm-3 ">
+            {{>menubar}}
+        </div>
+        <div class="col-sm-9 col-lg-9" style="background-color: white;">
+            <div class="container mt-3">
+                <div style="width: 50%; float: left;">
+                    <h3>Quản lý đăng ký lớp học phần</h3>
+                </div>
+                <div style="width: 50%; float: left;">
+                    <input type="search" placeholder="Mã số sinh viên......." id="gsearch" name="MaSinhVien">
+                    <input type="submit" onclick="ClickButtonSearch(this);" id="timkiemsinhvien" value="Tìm">
+                </div>
+                <div style="float: left; width: 50%;" class="dropdown-divider"></div>
+                <div class="row" id="lop_dssv" style="display: none;">
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="noidung_dangky" id="ChonHocKy" style="display: none;">
+                            <div class="form-group">
+                                <select style="width: 250px; margin-left: 150px;" class="form-control"
+                                    id="HienThiHocKy">
+                                    <option value="HienThi">Chọn đợt đăng ký</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-6" id="ChonTrangThaiHoc" style="display: none;">
+                        <input class="rdo_theloai" type="radio" name="theloai" value="Học mới"> Học mới
+                        <input class="rdo_theloai" type="radio" name="theloai" value="Học lại"> Học lại
+                        <input class="rdo_theloai" type="radio" name="theloai" value="Học cải thiện"> Học cải thiện
+                    </div>
+                </div>
+                <div class="row" id="HienThiHocPhan" style="display: none;">
+                    <h5 style="margin-left: 13px; margin-bottom: 7px;">Môn học/học phần đang chờ đăng ký</h5>
+                    <table class="table table-bordered" style="text-align: center;" id="HienThiHocPhanTrongHocKyChon">
+
+                    </table>
+                </div>
+                <div class="row">
+                    <div id="lophocphan_dk" style="display: none;" class="col-sm-6 col-lg-6">
+                        <h5>Lớp học phần chờ đăng ký</h5>
+
+                        <table id="HienThiLopHocPhan_DK" style="margin-top: 37px;" class="table table-bordered">
+
+                        </table>
+
+                    </div>
+                    <div id="ctlophocphan_dk" style="display: none;" class="col-sm-6 col-lg-6">
+                        <h5>Chi tiết lớp học phần</h5>
+                        <p class="lichtrung"><input class="lichtrung" type="button" value="Xem lịch trùng"></p>
+                        <table class="table table-bordered" id="tbChiTietLopHocPhan"
+                            style="text-align: center; display: block; overflow-x: auto; white-space: nowrap;">
+
+                        </table>
+                        <div>
+                            <input class="btn btn-danger" id="btnDangKy_lopHP" type="button" value="Đăng ký">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="lophocphandadangky" style="display: none;">
+                    <div class="col-sm-12 col-lg-12">
+                        <h5>Lớp học phần đã đăng ký trong học kỳ này</h5>
+                        <table class="table table-bordered" id="tblHienThiLopHocPhanDaDK"
+                            style="text-align: center; display: block; overflow-x: auto; white-space: nowrap;">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{! Model }}
+    <div class="model-xem-lich-dkhp">
+        <div class="container-model">
+            <div class="header-model" style="text-right">
+                <i class="js-close fa fa-window-close">
+                </i>
+            </div>
+            <div class="body-model">
+                <div class="" style="display:flex;">
+                    <div class="div-title" style="height: 20px;width:5px;background-color:red">
+                    </div>
+                    <h3 class="title-table" lang="mhpchodangky-tabletitle">
+                        Chi tiết lớp học
+                    </h3>
+                </div>
+                <div class="table-responsive table-model">
+                    <table id="tbChiTietDKHP"
+                        class="table-pointer table-dkhp table-custom table table-bordered text-center no-footer dtr-inline"
+                        width="100%" role="grid">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const btnXemLichs = document.querySelectorAll(".js-xem-lich-dkhp");
+        const model = document.querySelector(".model-xem-lich-dkhp");
+        const modelClose = document.querySelector(".js-close");
+        function openModelXemLich() { model.classList.add("open"); }
+        function removeModelXemLich() { model.classList.remove("open"); }
+        for (const btnXemLich of btnXemLichs) {
+            btnXemLich.addEventListener("click", openModelXemLich);
+        }
+        modelClose.addEventListener("click", removeModelXemLich);
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            // sự kiện nhấn enter khi nhập massv
+            var inputEnter = document.getElementById("gsearch");
+            inputEnter.addEventListener("keyup", function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("timkiemsinhvien").click();
+                }
+            });
+
+            LoadThongTinHocKy();
+            OnChangeHocKyDangKy();
+            ClickDangKyLopHocPhan();
+        });
+
+        // hiển thị thông tin sinh viên (input massv nhập)
+        function ClickButtonSearch() {
+            $('#lop_dssv').empty();
+            let MaSinhVien = $('#gsearch').val();
+            if (MaSinhVien == "") {
+                alert("Vui lòng nhập mã số sinh viên");
+            } else {
+                $.ajax({
+                    url: '/quanly-dkhp/thongtinsinhvien/' + MaSinhVien,
+                    type: 'get',
+                    dataType: 'json',
+                }).done(function (result) {
+                    if (result.length > 0) {
+                        for (let i = 0; i < result.length; i++) {
+                            let themThongTinSV = ` 
+                                    <div class="col-lg-4">
+                                        <div class="avatar_hp">
+                                            <img style="width: 150px; height: 150px; border-radius:50%;"
+                                                src="https://scontent.fdad3-4.fna.fbcdn.net/v/t1.6435-9/125804649_1537388186446618_1908998491894744380_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=ViQCjveXBVsAX_6Cazv&tn=4shL0tcfUZx9fRYh&_nc_ht=scontent.fdad3-4.fna&oh=0e5592a8da4597c554b6ed23cd791241&oe=61CA7C6A"
+                                                alt="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">MSSV: <b>`+ result[i].MaSinhVien + `</b></label>
+                                            <label for="">Họ tên: <b>`+ result[i].TenSinhVien + `</b> </label>
+                                            <label for="">Giới tính: <b>` + result[i].GioiTinh + `</b> </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="thongtin_dkhp">
+                                            <h4>Thông tin học vấn</h4>
+                                            <div class="dropdown-divider"></div>
+                                            <div class="thongtin_1">
+                                                <label for="">Trạng thái: <b>`+ result[i].TrangThai + `</b></label> <br>
+                                                <label for="">Lớp học: <b>`+ result[i].TenLop + `</b></label> <br>
+                                                <label for="">Bậc đào tạo: <b>`+ result[i].BacDaoTao + `</b></label> <br>
+                                                <label for="">Khoa: <b>`+ result[i].TenKhoa + `</b></label> <br>
+                                                <label for="">Chuyên ngành: <b>`+ result[i].TenChuyenNganh + `</b></label>
+                                            </div>
+                                            <div class="thongtin_2">
+                                                <label for="">Ngày vào trường: <b>20/08/2018</b></label> <br>
+                                                <label for="">Cơ sở: <b>`+ result[i].CoSo + `</b></label> <br>
+                                                <label for="">Loại hình đào tạo: <b>`+ result[i].LoaiHinhDaotao + `</b></label><br>
+                                                <label for="">Ngành: <b>`+ result[i].TenChuyenNganh + `</b></label><br>
+                                                <label for="">Khóa học: <b>2018-2022</b></label>
+                                                    </div>
+                                                    </div>
+                                    </div>`;
+                            $('#lop_dssv').append(themThongTinSV);
+                            $('#ChonHocKy').show();
+                            $('#ChonTrangThaiHoc').show();
+                        }
+                    } else {
+                        // $('#ChonHocKy').empty();
+                        $('#ChonTrangThaiHoc').empty();
+                        alert("Không có sinh viên cần tìm");
+                    }
+                    $('#lop_dssv').show();
+                });
+
+            }
+        }
+
+        // hiển thị thông tin học kỳ
+        function LoadThongTinHocKy() {
+
+            $.ajax({
+                url: '/quanly-dkhp/thongtinhocky',
+                type: 'get',
+                dataType: 'json'
+            }).done(function (result) {
+                if (result.length > 0) {
+                    for (let i = 0; i < result.length; i++) {
+                        let themHocKy = ` 
+                            <option value= "`+ result[i].MaHocKy + `">` + result[i].TenHocKy + `  ` + result[i].Nam + `</option>`;
+
+                        $('#HienThiHocKy').append(themHocKy);
+                    }
+
+                }
+            });
+        }
+
+        // hiển thị học phần tương ứng với học kỳ
+        function OnChangeHocKyDangKy() {
+            $('#HienThiHocKy').change(function () {
+                $("#HienThiLopHocPhan_DK").empty();
+                $('#HienThiHocPhan').show();
+                let MaHocKy = $("#HienThiHocKy").val();
+                if (MaHocKy == "HienThi") {
+                    alert("Vui lòng chọn học kỳ");
+                    $('#HienThiHocPhan').hide();
+                    $('#lophocphandadangky').hide();
+                } else {
+                    loadHocPhan();
+                }
+            });
+        }
+        function loadHocPhan() {
+            $('#tblHienThiLopHocPhanDaDK').empty();
+            let MaHocKy = $("#HienThiHocKy").val();
+            HienThiLopHocPhanDaDangKy(MaHocKy);
+            $.ajax({
+                url: '/quanly-dkhp/hienthihocphan/' + MaHocKy,
+                type: 'get',
+                dataType: 'json',
+            }).done(function (result) {
+                $('#HienThiHocPhanTrongHocKyChon').empty();
+                let themTieuDeHocPhan = `
+                            <tr>
+                                <th></th>
+                                <th>STT</th>
+                                <th>Mã học phần</th>
+                                <th>Tên môn học/học phần</th>
+                                <th>Bắt buộc</th>
+                                <th >TC</th>
+                                <th>
+                                    Học phần: học trước (a)
+                                    <br>
+                                    tiên quyết(b),
+                                    <br>
+                                    song song (c)
+                                </th>
+                            </tr>`;
+                $('#HienThiHocPhanTrongHocKyChon').append(themTieuDeHocPhan);
+
+                if (result.Data.length > 0) {
+                    for (let i = 0; i < result.Data.length; i++) {
+                        let data = result.Data[i];
+                        let themNoiDungHocPhan = `
+                                    <tr data-mahocphan="`+ data.MaHocPhan + `" class="check-select-monhoc">
+                                        <td>
+                                                <input class="check-select-monhoc"  data-mahocphan="`+ data.MaHocPhan + `"  name="rdoMonHocChoDangKy" type="radio" value="` + data.MaHocPhan + `" />
+                                        </td>
+                                        <td>`+ (i + 1) + `</td>
+                                        <td>`+ data.MaHocPhan + `</td>
+                                        <td>`+ data.TenMonHoc + `</td>
+                                        <td>`+ data.SoTC + `</td>
+                                        <td> 
+                                            <div>
+                                                <i class="fas fa-times-circle" style="color:red;font-size: 18px;"></i>
+                                            </div>
+                                        </td>
+                                        <td>00299(a)</td>
+                                    </tr>`;
+                        $('#HienThiHocPhanTrongHocKyChon').append(themNoiDungHocPhan);
+                    }
+                    HienThiLopHocPhan();
+                } else {
+                    let themND = `
+                                <tr>
+                                    <td colspan="7">Không tìm thấy môn học/học phần đang chờ đăng ký</td>
+                                </tr>`;
+                    $("#HienThiHocPhanTrongHocKyChon").append(themND);
+                }
+            });
+        }
+        // hiển thị lớp học phần tương ứng với học phần đã chọn
+        function HienThiLopHocPhan() {
+            $(".check-select-monhoc").click(function (e) {
+                var MaHocPhan = e.currentTarget.attributes["data-mahocphan"].value;
+                $.ajax({
+                    url: '/quanly-dkhp/hienthilophocphan/' + MaHocPhan,
+                    type: 'get',
+                    dataType: 'json',
+                }).done(function (result) {
+                    $("#HienThiLopHocPhan_DK").html("");
+                    let themTH = `<thead>
+                      <tr role="row">
+                        <th class="col-md-1" lang="sv-stt">STT</th>
+                        <th class="col-md-12" lang="dkhp-thongtinlhp">
+                          Thông tin lớp học phần
+                        </th>
+                        <th class="col-md-4" lang="dkhp-dadangky">Số lượng</th>
+                      </tr>
+                      </thead>`;
+
+                    /// Append TH
+                    $("#HienThiLopHocPhan_DK").append(themTH);
+                    // append td
+                    if (result.length > 0) {
+                        for (let i = 0; i < result.length; i++) {
+                            let themLopHocPhan = `<tbody>
+                              <tr class="SelectLopHocPhanChoDangKy" data-malophp ="`+ result[i].MaLopHP + `"
+                              data-trangthai = "` + result[i].TrangThai + `" data-soluongSV = "` + result[i].SoLuongSV + `">
+                                <td style="width: 40px">`+ (i + 1) + `</td>
+                                <td class="text-left">
+                                  <div class="name">
+                                     `+ result[i].TenMonHoc + ` </div>
+                                  <div>
+                                    <span >Trạng thái</span>:
+                                    <span >` + result[i].TrangThai + ` </span><br />
+                                    <span >Mã lớp học phần</span>:
+                                   `+ result[i].MaLopHP + ` - ` + result[i].TenLopHP + `
+                                  </div>
+                                </td>
+                                 <td>` + result[i].SoLuongSV + `</td>
+                              </tr>
+                            </tbody>`;
+                            $("#HienThiLopHocPhan_DK").append(themLopHocPhan);
+                        }
+                        HienThiChiTietLopHocPhan();
+                    } else {
+                        let themND = `<tr>
+                       <td colspan="3">Không tìm thấy môn học/học phần đang chờ đăng ký</td>
+                       </tr>`
+                        $("#HienThiLopHocPhan_DK").append(themND);
+                    }
+                    HienThiChiTietLopHocPhan();
+                });
+                $("#lophocphan_dk").show();
+            });
+
+        }
+
+        // hiển thị chi tiết lớp học phần tương ứng với lớp học phần đã chọn
+        function HienThiChiTietLopHocPhan() {
+            $('.SelectLopHocPhanChoDangKy').click(function (e) {
+
+                var MaLopHocPhan = e.currentTarget.attributes["data-malophp"].value;
+                var TrangThai = e.currentTarget.attributes["data-trangthai"].value;
+                var SoLuongSV = e.currentTarget.attributes["data-soluongSV"].value;
+
+
+                $.ajax({
+                    url: '/quanly-dkhp/hienthichitietlophocphan/' + MaLopHocPhan,
+                    type: 'get',
+                    dataType: 'json',
+                }).done(function (result) {
+                    $("#tbChiTietLopHocPhan").html("");
+                    let themTH_ChiTietLopHocPhan = `<thead>
+                    <tr role="row">
+                      <th class="col-md-12">
+                        <span lang="dkhp-trangthai">Trạng thái</span>:
+                        <span style="color: red;font-weight: bold;">`+ TrangThai + `</span>
+                      </th>
+                      <th lang="dkhp-nhom">Nhóm</th>
+                      <th>
+                        Sĩ số tối đa: `+ SoLuongSV + `
+                      </th>
+                    </tr>
+                  </thead>`;
+                    // append
+                    $('#tbChiTietLopHocPhan').append(themTH_ChiTietLopHocPhan);
+                    $('#btnXemLichLopHPTrung').show();
+                    if (result.length > 0) {
+                        for (let i = 0; i < result.length; i++) {
+                            let date = new Date(result[i].ThoiGianBatDau);
+                            let year = date.getFullYear();
+                            let month = (1 + date.getMonth()).toString().padStart(2, '0');
+                            let day = date.getDate().toString().padStart(2, '0');
+                            var thoigianbatdau = day + '/' + month + '/' + year;
+
+                            let date_1 = new Date(result[i].ThoiGianKetThuc);
+                            let year_1 = date_1.getFullYear();
+                            let month_1 = (1 + date_1.getMonth()).toString().padStart(2, '0');
+                            let day_1 = date_1.getDate().toString().padStart(2, '0');
+                            var thoigianketthuc = day_1 + '/' + month_1 + '/' + year_1;
+
+                            let themTD_ChiTietLopHocPhan = `
+                                <tbody>
+                                    <tr class="tr-chitietlichdangky" data-malophocphan = "`+ result[i].MaLopHocPhan + `">
+                                        <td class="text-left">
+                                            <div>
+                                            <span lang="dkhp-lichhoc">Lịch học</span>:
+                                            <b> LT - Thứ ` + result[i].Thu + `( Tiết ` + result[i].TietHoc + `)</b>
+                                            </div>
+                                            <div>
+                                            <span lang="dkhp-coso">Cơ sở</span>:
+                                            <b>Cơ sở 1 (Thành phố Hồ Chí Minh)</b>
+                                            </div>
+                                            <div>
+                                            <span lang="dkhp-daynha">Dãy nhà</span>:
+                                            <b>`+ result[i].DayNha + `</b>
+                                            </div>
+                                            <div>
+                                            <span lang="dkhp-phong">Phòng</span>:
+                                            <b>`+ result[i].TenPhongHoc + `</b>
+                                            </div>
+                                        </td>
+                                        <td>2</td>
+                                        <td class="text-left">
+                                            <div class="name">
+                                            <span lang="dkhp-gv">GV</span>: `+ result[i].TenGiangVien + `
+                                            </div>
+                                        `+ thoigianbatdau + `- ` + thoigianketthuc + `
+                                        </td>
+                                    </tr>
+                                </tbody>`;
+                            $('#tbChiTietLopHocPhan').append(themTD_ChiTietLopHocPhan);
+                        }
+                        $('#btnDangKy_lopHP').show();
+                        $('#ctlophocphan_dk').show();
+                        $('#btnDangKy_lopHP').attr("Data-MaLopHocPhan", MaLopHocPhan);
+                    } else {
+                        let themND = `
+                            <tr>
+                                <td colspan="3" >Chưa có lịch học </td>
+                            </tr>`
+                        $('#tbChiTietLopHocPhan').append(themND);
+                        $("#btnDangKy_lopHP").hide();
+                    }
+
+                });
+            });
+
+        }
+        // khi click vào buttton đăng ký 
+        function ClickDangKyLopHocPhan() {
+            $('#btnDangKy_lopHP').click(function () {
+                let MaHocKy = $("#HienThiHocKy").val();
+                let MaLopHP = $('#btnDangKy_lopHP').attr("Data-MaLopHocPhan");
+                if (MaHocKy == "HienThi") {
+                    alert("Vui lòng chọn học kỳ");
+                } else {
+                    $.ajax({
+                        url: '/quanly-dkhp/dangkylophocphan',
+                        type: 'post',
+                        data: JSON.stringify({ malophocphan: MaLopHP }),
+                        dataType: 'json',
+                        contentType: 'application/json;charset=utf-8',
+                        success: function () {
+                            $('#ctlophocphan_dk').hide();
+                            $('#lophocphan_dk').hide();
+                            // alert("Đăng kí thành công !!");
+                            loadHocPhan();
+                        }, error: function () {
+                        }
+                    });
+                }
+
+            });
+        }
+
+        // hiển thị danh sách lớp học phần đã đăng ký
+        function HienThiLopHocPhanDaDangKy(MaHocKy) {
+            $('#lophocphandadangky').show();
+            $.ajax({
+                url: '/quanly-dkhp/hienthilophocphandangky/' + MaHocKy,
+                type: 'get',
+                dataType: 'json'
+            }).done(function (result) {
+                let themThXemLopHocPhanDaDangKy = `
+                        <thead>
+                            <tr role="row">
+                                <th lang="dangkyhocphan-stt">STT</th>
+                                <th lang="dangkyhocphan-dadangkymalhp">
+                                Mã lớp học phần
+                                </th>
+                                <th lang="dangkyhocphan-tenmh">
+                                Tên môn học/học phần
+                                </th>
+                                <th lang="dangkyhocphan-dadangkylopdukien">
+                                Lớp học dự kiến
+                                </th>
+                                <th >TC</th>
+                                <th>Nhóm TH</th>
+                                <th >Học phí</th>
+                                <th >Hạn nộp</th>
+                                <th >Thu</th>
+                                <th >
+                                Trạng thái ĐK
+                                </th>
+                                <th lang="dangkyhocphan-ngaydangky">Ngày đăng ký</th>
+                                <th lang="dangkyhocphan-trangthailhp">
+                                Trạng thái Lớp học phần
+                                </th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                    </thead>`;
+                $('#tblHienThiLopHocPhanDaDK').append(themThXemLopHocPhanDaDangKy);
+                if (result.length > 0) {
+                    for (let i = 0; i < result.length; i++) {
+
+                        let date = new Date(result[i].NgayDangKy);
+                        let year = date.getFullYear();
+                        let month = (1 + date.getMonth()).toString().padStart(2, '0');
+                        let day = date.getDate().toString().padStart(2, '0');
+                        var daysss = day + '/' + month + '/' + year;
+
+                        let themNoiDungDaDangKy = `
+                        <tbody>
+                            <tr >
+                                <td>`+ (i + 1) + `</td>
+                                <td>`+ result[i].MaLopHP + `</td>
+                                <td class="text-left">`+ result[i].TenMonHoc + `</td>
+                                <td>`+ result[i].TenLopHP + `</td>
+                                <td>`+ result[i].SoTC + `</td>
+                                <td></td>
+                                <td class="text-right">
+                                <span>`+ result[i].HocPhi + ` VNĐ</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                <div>
+                                    <i class="fas fa-check-circle" style="color:#61FF00;font-size: 18px;"></i>
+                                </div>
+                                </td>
+                                <td>`+ result[i].TrangThai + `</td>
+                                <td>`+ daysss + `</td>
+                                <td>Chờ sinh viên đăng ký</td>
+                                <td>
+                                <button style= "margin-top: 0px;margin-left: 0px; height: 30px; width: 80px;background-color: #2FDD92;" 
+                                onclick="btnxemlichhoc(this);" data-lichocdangky = "` + result[i].MaLopHP + `"
+                                 class="js-xem-lich-dkhp btnXemXoa btn btn-sm btn-close"   >
+                                    Xem
+                                </button>
+                                </td>
+                                <td>
+                                <button onclick="btnHuyHocPhanDangKy(this);" style= "margin-top: 0px;margin-left: 0px; height: 30px; width: 80px;  
+                                background-color: #6B4F4F;" id="clickBtnHuy"  data-madangky="`+ result[i].MaDK + `"
+                                    class="btnXemXoa btn btn-sm btn-close">
+                                    Hủy
+                                </button>
+                                </td>
+                            </tr>
+                         </tbody>`;
+                        $('#tblHienThiLopHocPhanDaDK').append(themNoiDungDaDangKy);
+                    }
+                } else {
+                    let themNoiDungDaDangKy = `<tr>
+                       <td colspan="14">Không có lớp học phần được đăng ký</td>
+                       </tr>`;
+                    $('#tblHienThiLopHocPhanDaDK').append(themNoiDungDaDangKy);
+                }
+            });
+        }
+
+        // hiển thị lịch học tương ứng với học phần đã đăng ký
+        function btnxemlichhoc(e) {
+            var MaLopHocPhan = e.dataset.lichocdangky;
+            $.ajax({
+                url: '/quanly-dkhp/xemlichhoc/' + MaLopHocPhan,
+                type: 'get',
+                dataType: 'json',
+            }).done(function (rs) {
+                // xóa rỗng child trong table
+                $('#tbChiTietDKHP').empty();
+                let themTHLichHoc = `<thead>
+              <tr role="row">
+                <th >STT</th>
+                <th >Lịch học</th>
+                <th >Nhóm</th>
+                <th >Phòng</th>
+                <th >Dãy nhà</th>
+                <th >Cơ sở</th>
+                <th >Giảng viên</th>
+                <th >Thời gian</th>
+              </tr>
+            </thead>`;
+                $('#tbChiTietDKHP').append(themTHLichHoc);
+                if (rs.length > 0) {
+                    for (let n = 0; n < rs.length; n++) {
+                        let date = new Date(rs[n].ThoiGianBatDau);
+                        let year = date.getFullYear();
+                        let month = (1 + date.getMonth()).toString().padStart(2, '0');
+                        let day = date.getDate().toString().padStart(2, '0');
+                        var thoigianbatdau = day + '/' + month + '/' + year;
+
+                        let date_1 = new Date(rs[n].ThoiGianKetThuc);
+                        let year_1 = date_1.getFullYear();
+                        let month_1 = (1 + date_1.getMonth()).toString().padStart(2, '0');
+                        let day_1 = date_1.getDate().toString().padStart(2, '0');
+                        var thoigianketthuc = day_1 + '/' + month_1 + '/' + year_1;
+                        let themTDLichHoc = `
+                            <tbody>
+                                <tr>
+                                    <td>`+ (n + 1) + `</td>
+                                    <td>LT - `+ rs[n].Thu + ` (Tiết ` + rs[n].TietHoc + ` )</td>
+                                    <td></td>
+                                    <td>`+ rs[n].TenPhongHoc + `</td>
+                                    <td>`+ rs[n].DayNha + `</td>
+                                    <td>Cơ sở 1 (Thành phố Hồ Chí Minh)</td>
+                                    <td>`+ rs[n].TenGiangVien + `</td>
+                                    <td>`+ thoigianbatdau + ` - ` + thoigianketthuc + `</td>
+                                </tr>
+                            </tbody>`;
+                        $('#tbChiTietDKHP').append(themTDLichHoc);
+                    }
+                }
+                openModelXemLich();
+            });
+        }
+
+        // hùy lớp học phần đã đăng ký trong học kỳ
+        function btnHuyHocPhanDangKy(e) {
+            var MaDangKy = e.dataset.madangky;
+            let MaHocKy = $("#HienThiHocKy").val();
+            if (confirm("Bạn có chắc chắn muốn hủy không") == true) {
+                $.ajax({
+                    url: '/quanly-dkhp/huylophocphandangky/',
+                    type: 'post',
+                    data: { MaDangKy: MaDangKy },
+                    dataType: 'json',
+                    success: function () {
+                        $('#tblHienThiLopHocPhanDaDK').html("");
+                        loadHocPhan();
+                    }
+                });
+            }
+        }
+    </script>
+</div>

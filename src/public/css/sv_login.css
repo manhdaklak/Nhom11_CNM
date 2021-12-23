@@ -1,0 +1,76 @@
+@charset "UTF-8";
+:root {
+  -gray: #6c757d;
+  -blue: #007bff;
+  -textbold: #333333;
+  -text: #667580;
+  -textblue: #1da1f2;
+  -line: #cccccc;
+  -textred: #ff0000;
+  -headertable: #f3f7f9;
+  -textmiddle: #003f65;
+  -textmiddle022: #0c6fbe;
+  -inputdadien: #e8f0fe;
+}
+.main-login-sv .header-login-sv {
+  width: 100%;
+  height: 100px;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.main-login-sv .body-login-sv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-login-sv .body-login-sv .form-dang-nhap {
+  width: 350px;
+  height: 530px;
+  margin: 30px;
+  background-color: #e4edf4;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  border: 5px solid white;
+}
+.main-login-sv .body-login-sv .form-dang-nhap h4 {
+  color: #044eb7;
+  font-size: 18px;
+}
+.main-login-sv .body-login-sv .form-dang-nhap .form-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-login-sv .body-login-sv .form-dang-nhap #UserName,
+.main-login-sv .body-login-sv .form-dang-nhap #Password {
+  width: 90%;
+  height: 43px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #dddddd;
+  color: #333333;
+  font-style: italic;
+  font-size: 14px;
+  padding-left: 15px;
+  outline: none;
+}
+.main-login-sv .body-login-sv .form-dang-nhap .btnDangNhap {
+  width: 90%;
+  height: 48px;
+  background-color: #ff5a00;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.main-login-sv .body-login-sv .form-footer span a {
+  background-color: #25c6cb;
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}

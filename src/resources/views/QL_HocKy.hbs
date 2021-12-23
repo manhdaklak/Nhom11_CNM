@@ -1,0 +1,148 @@
+{{>headerQuanLy}}
+<div class="navbar quan-ly-mon-hoc">
+  <div class="nav quan-ly-mon-hoc-1">
+    <div class="col-sm-3 ">
+      {{>menubar}}
+    </div>
+    <div class="col-sm-9 col-lg-9" style="background-color: white;">
+      <div class="container mt-3">
+        <h3>Quản lý học kỳ</h3>
+        <br />
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#home">Học Kỳ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu1">Danh Sách Học Kỳ</a>
+          </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div id="home" class="container tab-pane active"><br />
+            <h5>Thông tin học kỳ</h5>
+            <form action="" style="border: 1px solid black; padding: 10px;">
+              <div class="row" id="hockyform">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="sel1">Mã Học Kỳ: </label>
+                    <input type="text" class="form-control" placeholder="HK12021" name="MaHocKy"
+                      value="{{chonhockys.MaHocKy}}">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="sel1">Học Kỳ: </label>
+                    <input type="text" class="form-control" placeholder="HK1" value="{{chonhockys.TenHocKy}}"
+                      name="TenHocKy">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="sel1">Năm Học: </label>
+                    <input type="text" class="form-control" placeholder="2021" name="Nam" value="{{chonhockys.Nam}}">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3">
+                  <button type="button" onclick="ThemHocKy(this);"  id="btnChinhSua" class="btn btn-primary">THÊM</button>
+                </div>
+                <div class="col-lg-3">
+                  <button type="button" onclick="ChinhSuaHocky(this);" class="btn btn-warning">CHỈNH SỬA</button>
+                </div>
+                <div class="col-lg-4">
+                  <button type="button" class="btn btn-secondary">LÀM MỚI</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div id="menu1" class="container tab-pane fade"><br />
+
+            <div class="card mb-4">
+              <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Bảng hiển thị danh sách học kỳ
+              </div>
+              <div class="card-body">
+                <div id="table_hocky">
+                  <table class="table table-bordered" id="table_id">
+                    <thead>
+                      <tr>
+                        <th>STT</th>
+                        <th>Mã học kỳ</th>
+                        <th>Tên Học Kỳ </th>
+                        <th>Năm Học</th>
+                        <th>Thao Tác</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {{#each hockys}}
+                      <tr>
+                        <td>{{sum @index 1}}</td>
+                        <td>{{this.MaHocKy}}</td>
+                        <td>{{this.TenHocKy}}</td>
+                        <td>{{this.Nam}}</td>
+                        <td colspan="2">
+                          <a style="width: 100px;" class="btn btn-info"
+                            href="/quanly-hocky/chinhsuahocky/{{this.MaHocKy}}">Chỉnh Sửa</a>
+                          <a style="width: 100px; margin-left: 20px;" class="btn btn-danger"
+                            href="/quanly-hocky/xoahocky?MaHocKy={{this.MaHocKy}}"
+                            onclick="return confirm ('Bạn có chắc muốn xóa không ?')">Xóa</a>
+                        </td>
+                        {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function ThemHocKy() {
+      let MaHocKy = $('input[name="MaHocKy"]').val();
+      let TenHocKy = $('input[name="TenHocKy"]').val();
+      let Nam = $('input[name="Nam"]').val();
+
+      if (MaHocKy == "" || TenHocKy == "" || Nam == "") {
+        alert("Vui lòng nhập thông tin !");
+      } else {
+        $.ajax({
+          url: '/quanly-hocky/themhocky',
+          type: 'post',
+          data: { MaHocKy: MaHocKy, TenHocKy: TenHocKy, Nam: Nam },
+          dataType: 'json',
+          success: function () {
+            alert(" Thêm thành công !");
+            window.location.href = '/quanly-hocky'
+          }
+        });
+      }
+
+    }
+    function ChinhSuaHocky() {
+      let MaHocKy = $('input[name="MaHocKy"]').val();
+      let TenHocKy = $('input[name="TenHocKy"]').val();
+      let Nam = $('input[name="Nam"]').val();
+      if (MaHocKy == "" || TenHocKy == "" || Nam == "") {
+        alert("Vui lòng nhập thông tin !");
+      } else {
+        $.ajax({
+          url: '/quanly-hocky/chinhsuahocky',
+          type: 'post',
+          data: { MaHocKy: MaHocKy, TenHocKy: TenHocKy, Nam: Nam },
+          dataType: 'json',
+          success: function () {
+            alert("Chỉnh sửa thành công");
+            window.location.href = '/quanly-hocky'
+          }
+        });
+      }
+    }
+  </script>
+</div>

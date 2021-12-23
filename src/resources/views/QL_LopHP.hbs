@@ -1,0 +1,547 @@
+{{>headerQuanLy}}
+<div class="navbar quan-ly-mon-hoc">
+    <div class="nav quan-ly-mon-hoc-1">
+       <div class="col-sm-3 " >
+         {{>menubar}}
+        </div>
+        <div class="col-sm-9 col-lg-9" style="background-color: white;">
+            <div class="container mt-3">
+                <h3>Quản lý lớp học phần</h3>
+                <br />
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#home">Lớp Học Phần</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#menu1">Danh Sách Lớp Học Phần</a>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div id="home" class="container tab-pane fade">
+                        <form action="" style="border: 1px solid black; padding: 10px;">
+                            <h5>Thông tin lớp học phần</h5>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Tên Khoa/ Viện:</label>
+                                        <select class="form-control" id="ChonKhoa">
+                                            <option>Chọn khoa</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Tên Chuyên Ngành: </label>
+                                         <select class="form-control" id="ChonChuyenNganh">
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Học Kỳ:</label>
+                                        <select class="form-control" id="HocKy">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Năm Học:</label>
+                                        <select class="form-control" id="NamHoc">
+                                            <option value="2018-2019">2018-2019</option>
+                                            <option value="2019-2020">2019-2020</option>
+                                            <option value="2020-2021">2020-2021</option>
+                                            <option value="2021-2022">2021-2022</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Mã Học Phần</label>
+                                        <select class="form-control" id="ChonMaHocPhan">
+                                            <option>123444556</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Tên Học Phần:</label>
+                                        <select class="form-control" id="ChonHocPhan">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Mã Lớp Học Phần: </label>
+                                        <input type="text" class="form-control" placeholder="12345678" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Tên Lớp Học Phần Dự Kiến:</label>
+                                       <select class="form-control" id="ChonLop">
+                                            <option>Chọn lớp</option>
+                                        </select>
+                                       </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Sĩ số tối đa:</label>
+                                        <input type="text" class="form-control" placeholder="100" name="SiSoToiDa">
+                                    </div>
+                                </div>
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Số lượng đăng ký:</label>
+                                        <input type="text" class="form-control" placeholder="0" readonly>
+                                    </div>
+                                </div>
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Trạng thái:</label>
+                                        <select class="form-control" id="TrangThaiLopHP">
+                                            <option value="Chấp nhận mở lớp">Chấp nhận mở lớp</option>
+                                            <option value="Chờ sinh viên đăng ký">Chờ sinh viên đăng ký</option>
+                                            <option value="Đang lên kế hoạch">Đang lên kế hoạch</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            {{!-- =============================Lịch Học===================================== --}}
+                            <h5>Lịch Học</h5>
+                            <div class="row">
+                                <div class="col-sm-2 col-lg-2" id="buoihoc">
+                                    <div class="form-group">
+                                        <label><b>Buổi 1</b>: </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 col-lg-2">
+                                    <div class="form-group">
+                                        <label for="sel1">Tiết: </label><br/>
+                                        <select id="TietLopHP">
+                                            <option value="1 - 3" >1 - 3</option>
+                                            <option value="4 - 6" >4 - 6</option>
+                                            <option value="7 - 9" >7 - 9</option>
+                                            <option value="10 - 12" >10 - 12</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 col-lg-2">
+                                    <div class="form-group">
+                                        <label for="sel1">Thứ:</label>
+                                        <select id="ThuLopHP">
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="chủ nhật">chủ nhật</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-lg-3">
+                                    <div class="form-group">
+                                        <label for="start">Ngày bắt đầu:</label>
+                                        <input type="date" id="start" name="NgayBatDau" value="2021-08-15">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-lg-3">
+                                    <div class="form-group">
+                                        <label for="start">Ngày kết thúc:</label>
+                                        <input type="date" id="end" name="NgayKetThuc" value="2021-08-15">
+                                    </div>
+                                </div>
+                            </div>
+                           
+
+                            {{!-- ================================================Giảng Viên Phụ
+                            Trách======================= --}}
+                            <h5>Giảng Viên Phụ Trách</h5>
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-12">
+                                    <b>Lý thuyết</b>
+                                </div>
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Mã Giảng Viên:</label>
+                                        <select class="form-control" id="ChonMaGiangVien">
+                                            <option>Mã Giảng Viên</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Tên Giảng Viên:</label>
+                                        <select class="form-control" id="ChonGiangVien">
+                                            <option>Tên Giảng Viên</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            {{!-- =============================Phòng Học======================================== --}}
+                            <h5>Phòng Học</h5>
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label><b>Lý thuyết &nbsp; </b>: Cơ sở &nbsp;</label>
+                                        <select class="form-control" id="CoSoLopHP">
+                                            <option>Chọn cơ sở</option>
+                                            <option value="Cơ Sở 1 (Thành Phố Hồ Chí Minh)">Cơ Sở 1 (Thành Phố Hồ Chí Minh)</option>
+                                            <option value="Cơ sở 2 (Phân Hiệu Quảng Ngãi)">Cơ sở 2 (Phân Hiệu Quảng Ngãi)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Dãy Nhà:</label>
+                                        <select class="form-control" id="DayNhaLopHP">
+                                            <option>A</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Tên Phòng:</label>
+                                        <select class="form-control" id="TenPhongHoc">
+                                            <option>A1.01</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <button id="btnThemLopHP" onclick="ThemLopHocPhan(this)" class="btn btn-primary">THÊM</button>
+                                </div>
+                                <div class="col-lg-3">
+                                    <button type="button" class="btn btn-warning">CHỈNH SỬA</button>
+                                </div>
+                                <div class="col-lg-3">
+                                    <button type="button" class="btn btn-secondary">LÀM MỚI</button>
+                                </div>
+                            </div>
+
+                        </form>
+                        {{!-- ============================================Danh Sách Môn Học/Học Phần
+                        ========================== --}}
+
+                    </div>
+                     <div id="menu1" class="container tab-pane active"><br />
+                        <form action="">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-table me-1"></i>
+                                    Bảng hiển thị danh sách lớp học phần
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-bordered" id="table_id">
+                                        <thead>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Mã lớp học phần</th>
+                                                <th>Lớp học dự kiến</th>
+                                                <th>Tên môn học</th>
+                                                <th>Chuyên ngành</th>
+                                                <th>Tên khoa/viện</th>
+                                                <th>Học kỳ</th>
+                                                <th>Năm học</th>
+                                                <th>Số lượng sinh viên đã đăng kí</th>
+                                                <th>Số lượng đăng kí tối đa</th>
+                                                <th>Trạng thái </th>
+                                                <th>Chấp nhận mở lớp </th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each qllophocphans}}
+                                            <tr>
+                                                <td>{{sum @index 1}}</td>
+                                                <td>{{this.MaLopHP}}</td>
+                                                <td>{{this.TenLopHP}}</td>
+                                                <td>{{this.TenMonHoc}}</td>
+                                                <td>{{this.TenChuyenNganh}}</td>
+                                                <td>{{this.TenKhoa}}</td>
+                                                <td>{{this.TenHocKy}}</td>
+                                                <td>{{this.Nam}}</td>
+                                                <td>{{this.SoLuongSVDaDangKy}}</td>
+                                                <td>{{this.SoLuongSV}}</td>
+                                                <td>{{this.TrangThai}}</td>
+                                                <td><a href="/quanly-lophp/trangthai?MaLopHP={{this.MaLopHP}}" onclick="return confirm ('Chấp nhận mở lớp học phần {{this.TenMonHoc}} ( {{this.TenLopHP}} ) ?')" class="btn btn-primary"><i class="fa fa-check-square-o"></i>Chấp nhận mở lớp</a></td>
+                                                <td colspan="3">
+                                                    <a href="#" class="btn btn-success">Xem Chi tiết</a>
+                                                    <a href="#" class="btn btn-warning">Chỉnh Sửa</a>
+                                                    <a href="/quanly-lophp/delete?MaLopHP={{this.MaLopHP}}" onclick="return confirm ('Xoá lớp học phần {{this.TenMonHoc}} ( {{this.TenLopHP}} ) ?')" class="btn btn-danger">Xóa</a>
+                                                    <a href="/quanly-lophp/dssv/{{this.MaLopHP}}" class="btn btn-info">Danh sách sinh viên</a>
+                                                </td>
+                                                 {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+    // hiển thị thông tin về các khoa
+    function loadKhoa() {
+        $.ajax({
+            url: '/quanly-lophp/loadkhoa',
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+
+                    let themKhoa = `
+                            <option value = "`+ result[i].MaKhoa + `">` + result[i].TenKhoa + `</option>`;
+                    $('#ChonKhoa').append(themKhoa);
+                }
+            }
+
+        });
+    }
+    loadKhoa();
+
+    // khi click chọn khoa sẽ hiển thị ra chuyên ngành tương ứng với khoa
+    $('#ChonKhoa').change(function () {
+        $("#ChonChuyenNganh").empty();
+        let MaKhoa = $("#ChonKhoa").val();
+        $.ajax({
+            url: '/quanly-lophp/loadchuyennganh/' + MaKhoa,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+                    let themChuyeNganh = `
+                        <option value = "`+ result[i].MaChuyenNganh + `">` + result[i].TenChuyenNganh + `</option>`;
+                    $('#ChonChuyenNganh').append(themChuyeNganh);
+                }
+            }
+
+        });
+    })
+
+    // khi chọn chuyên ngành sẽ hiển thị ra lớp danh nghĩa tương ứng
+    $('#ChonChuyenNganh').change(function () {
+        $('#ChonLop').empty();
+        $('#ChonHocPhan').empty();
+        $('#ChonMaHocPhan').empty();
+        $('#ChonMaGiangVien').empty();
+        $('#ChonGiangVien').empty();
+        let MaChuyenNganh = $('#ChonChuyenNganh').val();
+        $.ajax({
+            url: '/quanly-lophp/loadlop/' + MaChuyenNganh,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+                    let themLop = ` <option value = "` + result[i].TenLop + `">` + result[i].TenLop + `</option>`;;
+                    $('#ChonLop').append(themLop);
+                }
+            }
+        });
+        $.ajax({
+            url: '/quanly-lophp/loadhocphan/' + MaChuyenNganh,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (res) {
+            if (res.length > 0) {
+                for (let i = 0; i < res.length; i++) {
+                    let themHP = `<option value = "` + res[i].TenMonHoc + `">` + res[i].TenMonHoc + `</option>`;;
+                   
+                    $('#ChonHocPhan').append(themHP);
+                }
+            }
+        });
+         $.ajax({
+            url: '/quanly-lophp/loadhocphan/' + MaChuyenNganh,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (res) {
+            if (res.length > 0) {
+                for (let i = 0; i < res.length; i++) {
+                    let themHP = `<option value = "` + res[i].MaHocPhan + `">` + res[i].MaHocPhan + `</option>`;;
+                    $('#ChonMaHocPhan').append(themHP);
+                }
+            }
+        });
+        $.ajax({
+            url: '/quanly-lophp/loadgiangvien/' + MaChuyenNganh,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (res) {
+            if (res.length > 0) {
+                for (let i = 0; i < res.length; i++) {
+                    let themGV = `<option value = "` + res[i].TenGiangVien + `">` + res[i].TenGiangVien + `</option>`;;
+                   
+                    $('#ChonGiangVien').append(themGV);
+                }
+            }
+        });
+         $.ajax({
+            url: '/quanly-lophp/loadgiangvien/' + MaChuyenNganh,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (res) {
+            if (res.length > 0) {
+                for (let i = 0; i < res.length; i++) {
+                    let themGV = `<option value = "` + res[i].MaGiangVien + `">` + res[i].MaGiangVien + `</option>`;;
+                    $('#ChonMaGiangVien').append(themGV);
+                }
+            }
+        });
+    });
+     // khi chọn học phần sẽ hiển thị ra mã học phần danh nghĩa tương ứng
+    $('#ChonHocPhan').change(function () {
+        $('#ChonMaHocPhan').empty();
+        let TenHocPhan = $('#ChonHocPhan').val();
+        $.ajax({
+            url: '/quanly-lophp/loadmahocphan/' + TenHocPhan,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+                    let layMa = ` <option value = "` + result[i].MaHocPhan + `">` + result[i].MaHocPhan + `</option>`;;
+                    $('#ChonMaHocPhan').append(layMa);
+                }
+            }
+        });
+    });
+    // khi chọn giảng viên sẽ hiển thị ra mã giảng viên danh nghĩa tương ứng
+    $('#ChonGiangVien').change(function () {
+        $('#ChonMaGiangVien').empty();
+        let TenGiangVien = $('#ChonGiangVien').val();
+        $.ajax({
+            url: '/quanly-lophp/loadmagiangvien/' + TenGiangVien,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+                    let layMa = ` <option value = "` + result[i].MaGiangVien + `">` + result[i].MaGiangVien + `</option>`;;
+                    $('#ChonMaGiangVien').append(layMa);
+                }
+            }
+        });
+    });
+    // khi chọn học phần sẽ hiển thị ra mã học phần danh nghĩa tương ứng
+    $('#CoSoLopHP').change(function () {
+        $('#DayNhaLopHP').empty();
+        $('#TenPhongHoc').empty();
+        let CoSo = $('#CoSoLopHP').val();
+        $.ajax({
+            url: '/quanly-lophp/loaddaynha/' + CoSo,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+                    let daynha = ` <option value = "` + result[i].MaPhongHoc + `">` + result[i].DayNha + `</option>`;;
+                    $('#DayNhaLopHP').append(daynha);
+                }
+            }
+        });
+        $.ajax({
+            url: '/quanly-lophp/loaddaynha/' + CoSo,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+                    let phonghoc = ` <option value = "` + result[i].TenPhongHoc + `">` + result[i].TenPhongHoc + `</option>`;;
+                    $('#TenPhongHoc').append(phonghoc);
+                }
+            }
+        });
+    });
+    // khi chọn giảng viên sẽ hiển thị ra mã giảng viên danh nghĩa tương ứng
+    $('#DayNhaLopHP').change(function () {
+        $('#TenPhongHoc').empty();
+        let DayNha = $('#DayNhaLopHP').val();
+        $.ajax({
+            url: '/quanly-lophp/loadphonghoc/' + DayNha,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+                    let phonghoc = ` <option value = "` + result[i].TenPhongHoc + `">` + result[i].TenPhongHoc + `</option>`;;
+                    $('#TenPhongHoc').append(phonghoc);
+                }
+            }
+        });
+    });
+
+});
+// them sinh vien moi
+function ThemLopHocPhan() {
+    debugger;
+    var tenKhoa = $("#ChonKhoa").val();
+    var tenChuyenNganh = $('#ChonChuyenNganh').val();
+    var tenHocKy = $('input[name="NamSinh"]').val();
+    var tenNamHoc = $('#ChonTrangThai').val();
+    var maHocPhan = $('#ChonMaHocPhan').val();
+    var tenHocPhan = $('#ChonHocPhan').val();
+    var tenLopHPDuKien = $('#ChonLop').val();
+    var siSo = $('input[name="SiSoToiDa"]').val();
+    var trangThai = $('#TrangThaiLopHP').val();
+    var tiet = $('#TietLopHP').val();
+    var thu = $('#ThuLopHP').val();
+    var ngayBD = $('input[name="NgayBatDau"]').val();
+    var ngayKT = $('input[name="NgayKetThuc"]').val();
+    var maGV = $('#ChonMaGiangVien').val();
+    var tenGV = $('#ChonGiangVien').val();
+    var coso = $('#CoSoLopHP').val();
+    var dayNha = $('#DayNhaLopHP').val();
+    var tenPhong = $('TenPhongHoc').val();
+
+    $.ajax({
+        url: '/quanly-sinhvien/api',
+        type: 'post',
+        data:
+        {
+            tenKhoa: tenKhoa,
+            tenChuyenNganh: tenChuyenNganh,
+            tenHocKy: tenHocKy,
+            tenNamHoc: tenNamHoc,
+            maHocPhan: maHocPhan,
+            tenHocPhan: tenHocPhan,
+            tenLopHPDuKien: tenLopHPDuKien,
+            siSo: siSo,
+            trangThai: trangThai,
+            tiet: tiet,
+            thu: thu,
+            ngayBD: ngayBD,
+            ngayKT: ngayKT,
+            maGV: maGV,
+            tenGV: tenGV,
+            coso: coso,
+            dayNha: dayNha,
+            tenPhong: tenPhong
+        },
+        dataType: 'json',
+        success: function () {
+            window.location.href = '/quanly-sinhvien/'
+        }
+    });
+}
+</script>

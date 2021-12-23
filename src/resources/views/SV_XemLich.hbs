@@ -1,0 +1,358 @@
+{{>header}}
+<div class="navbar body-main-xem-lich-sv">
+  <div class="xem-lich-sv row">
+    {{! /* Menu Trái */ }}
+    <div class="menu-left-sv col-md-2 col-lg-2">
+      <nav class="navbar-expand-lg">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/sinhvien/home"><i class="fa fa-home"></i>TRANG CHỦ</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3"
+                aria-controls="submenu-3"><i class="fas fa-mortar-board"></i>HỌC TẬP<i
+                  class="icon-hoc-tap fa fa-angle-down"></i></a>
+              <div id="submenu-3" class="div-menu-con collapse submenu" style="">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/sinhvien/ketquahoctap">Kết quả
+                      học tập
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/sinhvien/xemlich">Lịch học</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/sinhvien/xemlich">Lịch thi</a>
+                  </li>
+
+                </ul>
+              </div>
+
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4"
+                aria-controls="submenu-4"><i class="fa fa-check-square-o"></i>ĐĂNG KÝ HỌC PHẦN<i
+                  class="icon-dkhp-hoc-phan fa fa-angle-down"></i></a>
+              <div id="submenu-4" class="div-menu-con collapse submenu" style="">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/sinhvien/dangkyhocphan">Đăng ký
+                      học phần</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Chương trình khung</a>
+                  </li>
+
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5"
+                aria-controls="submenu-5"><i class="fa fa-cc-visa"></i>HỌC PHÍ<i
+                  class="icon-hoc-phi fa fa-angle-down"></i></a>
+              <div id="submenu-5" class="div-menu-con collapse submenu" style="">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Tra cứu công nợ</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Thanh toán trực tuyến</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Phiếu thu tổng hợp</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+    </div>
+    {{! /* Main Xem Lich*/ }}
+    <div class="main-xem-lich-sv col">
+      <div class="text-title">
+        <p>
+          Lịch học, lịch thi theo tuần
+        </p>
+      </div>
+      <div class="chuc-nang-lich row">
+        <div class="mt-radio-inline col text-right" style="width: 255px;float: left;padding: 5px 0px 0px 0px;">
+          <label class="mt-radio" style="padding-left: 25px;margin-bottom: 0px;">
+            <span></span>
+            <input id="rdoLoaiLich" name="rdoLoaiLich" type="radio" value="0" />
+            <label lang="lichtheotuan-tatca">Tất cả</label>
+
+          </label>
+          <label class="mt-radio" style="padding-left: 25px;margin-bottom: 0px;">
+            <span></span>
+            <input checked="checked" id="rdoLoaiLich" name="rdoLoaiLich" type="radio" value="1" />
+            <label lang="lichtheotuan-lichhoc">Lịch học</label>
+
+          </label>
+          <label class="mt-radio" style="padding-left: 25px;margin-bottom: 0px;">
+            <span></span>
+            <input id="rdoLoaiLich" name="rdoLoaiLich" type="radio" value="2" />
+            <label lang="lichtheotuan-lichthi">Lịch thi</label>
+
+          </label>
+
+        </div>
+
+        <div id="datepicker" class="input-group date" data-format="dd-mm-yyyy">
+          <input class="inputLich" type="date" id="theDate" />
+         
+        </div>
+       
+
+        <div class="hienTai row" id="btnHienTai">
+          <span class="input-group-addon"><i class="fa fa-calendar-check-o"></i></span>
+          <p>Hiện tại</p>
+        </div>
+
+        <div class="hienTai row">
+          <span class="input-group-addon"><i class="fa fa-print"></i></span>
+          <p>In lịch</p>
+        </div>
+
+        <div class="troVe row" id="btnPrevious">
+          <span class="input-group-addon"><i class="fa fa-angle-left"></i></span>
+          <p>Trở về</p>
+        </div>
+
+        <div class="tiep row" id="btnNext">
+          <p>Tiếp</p>
+          <span class="input-group-addon"><i class="fa fa-angle-right"></i></span>
+        </div>
+
+        <div class="fullScreen row">
+          <span class="input-group-addon"><i class="fas fa-expand-alt"></i></span>
+        </div>
+
+      </div>
+
+      <hr style="width:100%;color:#cccccc; margin-top:0px" />
+      {{!-- Lịch học --}}
+      <div class="mainXemLich">
+        <table id="HienThiLichTrongTuan" class="fl-table table table-bordered text-center no-footer dtr-inline"
+          width="100%"  role="grid">
+        
+        </table>
+      </div>
+
+      <div class="ghiChu">
+        <div class="ghiChuNho">
+          <div class="ghiChuLichHoc"></div>
+          <span>Lịch học</span>
+        </div>
+        <div class="ghiChuNho">
+          <div class="ghiChuLichThi"></div>
+          <span>Lịch thi</span>
+        </div>
+        <div class="ghiChuNho">
+          <div class="ghiChuLichTamNgung"></div>
+          <span>Lịch tạm ngưng</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var current_date = moment().locale('vi');
+    var weekStart = current_date.clone().startOf('Week');
+    var weekEnd = current_date.clone().endOf('Week');
+
+
+    var scheduler = {
+      _current_date: moment().locale('vi'),
+      _week_Start: current_date.clone().startOf('Week'),
+      _weekEnd: current_date.clone().endOf('Week'),
+      _btnNext: "#btnNext",
+      _btnToday: "#btnHienTai",
+      _btnPrevious: "#btnPrevious",
+      _btnWeekNow: "#theDate",
+      _init: function () {
+        var _this = this;
+        _this._viewToday();
+        _this._clickNext();
+        _this._clickPrevious();
+        _this._clickNow();
+        _this._currentWeek();
+        _this._btnWeekNow();
+      },
+      _viewToday: function () {
+        var date = new Date();
+        var day = date.getDate();
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
+        if (month < 10) month = "0" + month;
+        if (day < 10) day = "0" + day;
+        var today = year + "-" + month + "-" + day;
+        $("#theDate").attr("value", today);
+
+      },
+      _clickNext: function () {
+        var _this = this;
+        $(_this._btnNext).click(function () {
+          _this._current_date = moment(_this._weekEnd).add(1, 'days');
+          $('#HienThiLichTrongTuan').empty();
+          _this._week_Start = _this._current_date.clone().startOf('Week');
+          _this._weekEnd = _this._current_date.clone().endOf('Week');
+          current_date = moment(_this._weekEnd).add(1, 'days');
+          var days = [];
+          let themCaHoc = `<th lang="lichtheotuan-cahoc">Ca học</th>`;
+          $('#HienThiLichTrongTuan').append(themCaHoc);
+          for (var i = 0; i <= 6; i++) {
+            var thu = moment(_this._week_Start).add(i, 'days').format('dddd');
+            var ngaythang = moment(_this._week_Start).add(i, 'days').format('L');
+            days.push(moment(_this._week_Start).add(i, 'days').format('LLLL'));
+            let themTh = ` 
+              <th>
+                <span lang="lichtheotuan-mon">`+ thu + `</span><br />` + ngaythang + `
+              </th>`;
+            $('#HienThiLichTrongTuan').append(themTh);
+          }
+          _this._getData();
+        });
+      },
+      _clickPrevious: function () {
+        var _this = this;
+        $(_this._btnPrevious).click(function () {
+          $('#HienThiLichTrongTuan').empty();
+          _this._current_date = moment(_this._week_Start).subtract(1, 'days');
+          _this._week_Start = _this._current_date.clone().startOf('Week');
+          _this._weekEnd = _this._current_date.clone().endOf('Week');
+          _this._current_date = moment(_this._week_Start).subtract(1, 'days');
+          var days = [];
+          let themCaHoc = `<th lang="lichtheotuan-cahoc">Ca học</th>`;
+          $('#HienThiLichTrongTuan').append(themCaHoc);
+          for (var i = 0; i <= 6; i++) {
+            var thu = moment(_this._week_Start).add(i, 'days').format('dddd');
+            var ngaythang = moment(_this._week_Start).add(i, 'days').format('L');
+            days.push(moment(_this._week_Start).add(i, 'days').format('LLLL'));
+            let themTh = ` 
+              <th>
+                <span lang="lichtheotuan-mon">`+ thu + `</span><br />` + ngaythang + `
+              </th>`;
+            $('#HienThiLichTrongTuan').append(themTh);
+          }
+          _this._getData();
+        });
+      },
+      _clickNow: function () {
+        var _this = this;
+        $(_this._btnToday).click(function () {
+          _this._current_date = moment().locale('vi');
+          _this._week_Start = _this._current_date.clone().startOf('Week');
+          _this._weekEnd = _this._current_date.clone().endOf('Week');
+          $("#HienThiLichTrongTuan").empty();
+          let themCaHoc = `<th lang="lichtheotuan-cahoc">Ca học</th>`;
+          $('#HienThiLichTrongTuan').append(themCaHoc);
+          for (var i = 0; i <= 6; i++) {
+            var thu = moment(_this._week_Start).add(i, 'days').format('dddd');
+            var ngaythang = moment(_this._week_Start).add(i, 'days').format('L');
+            let themTh = ` 
+              <th>
+                <span lang="lichtheotuan-mon">`+ thu + `</span><br />` + ngaythang + `
+              </th>`;
+            $('#HienThiLichTrongTuan').append(themTh);
+
+          }
+          _this._getData();
+        });
+      },
+      _currentWeek: function () {
+        var _this = this;
+        $("#HienThiLichTrongTuan").empty();
+        let themCaHoc = `<th lang="lichtheotuan-cahoc">Ca học</th>`;
+        $('#HienThiLichTrongTuan').append(themCaHoc);
+        for (var i = 0; i <= 6; i++) {
+          var thu = moment(_this._week_Start).add(i, 'days').format('dddd');
+          var ngaythang = moment(_this._week_Start).add(i, 'days').format('L');
+          let themTh = ` 
+              <th>
+                <span lang="lichtheotuan-mon">`+ thu + `</span><br />` + ngaythang + `
+              </th>`;
+          $('#HienThiLichTrongTuan').append(themTh);
+
+        }
+        _this._getData();
+      },
+      _getData: function () {
+        var _this = this;
+        // start, end...
+        $.ajax({
+          url: '/sinhvien/lichmonhoc',
+          type: 'get',
+          dataType: "json",
+          contentType: "application/json;chartset=utf-8",
+          success: function (result) {
+            _this._refreshData(result);
+          }
+        })
+      },
+      _refreshData: function (dataSource) {
+        var $row = "";
+        var $cell = "";
+        for (var data in dataSource) {
+          $row = $('<tr role="row" style="width:100%"></tr>');
+          for (var i = 0; i < 8; i++) {
+            $cell = $("<td></td>");
+            var dayofweek = "T" + (i + 1);
+            var dataOfweek = dataSource[data][dayofweek];
+            if(i==0 && data == "Sang"){
+              let themBuoiSang = '<div class="BuoiHoc"> Sáng </div>'
+              $cell.append(themBuoiSang);
+            }
+           if(i==0 && data == "Chieu"){
+              let themBuoiChieu = '<div class="BuoiHoc"> Chiều</div>'
+              $cell.append(themBuoiChieu);
+            }
+            if (dataOfweek && Array.isArray(dataOfweek)) {
+              $(dataOfweek).each(function (i, item) {
+                let itemGhiChu = item.GhiChu;
+                let ghichu = "";
+                
+                if (itemGhiChu === null) {
+                  itemGhiChu = ghichu;
+                }
+                let themLichMonHoc = `
+                  <div class="content color-lichhoc text-left lich-hoc-chi-tiet"
+                    style="text-align: left; ">
+                    <b><a href="javascript:" target=""
+                        style="text-decoration: none;color: #003763;">`+ item.TenMonHoc + `</a></b>
+                    <p>`+ item.TenLopHP + `  -` + item.MaLopHP + `</p>
+                    <p>
+                      <span lang="lichtheotuan-tiet">Tiết</span>: `+ item.TietHoc + ` <br />
+                      <span> </span>
+                    </p>
+                    <span lang="giang-duong">Phòng</span>: `+ item.TenPhongHoc + `
+                    <p>
+                      <span lang="lichtheotuan-gv">GV</span>: `+ item.TenGiangVien + `
+                    </p>
+                    <p>
+                      <span lang="lichtheotuan-ghichu">Ghi chú</span>: `+ itemGhiChu + `
+                    </p>
+                  </div>`;
+
+                //$cell.append("<span>" + item.Name + "</span>");
+                $cell.append(themLichMonHoc);
+              });
+            }
+            $row.append($cell);
+          }
+          $("#HienThiLichTrongTuan").append($row); // body
+        }
+      },
+
+    }
+
+
+    $(document).ready(function () {
+      scheduler._init();
+    });
+  </script>
+</div>

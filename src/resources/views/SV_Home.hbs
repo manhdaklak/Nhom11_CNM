@@ -1,0 +1,489 @@
+{{>header}}
+<div class="navbar body-main">
+  <div class="nav home-sinh-vien">
+    {{! row 1 }}
+    <div class="nav-row-home-1 row">
+      {{! Thông tin sinh viên }}
+      <div class="thong-tin-sinh-vien">
+        <div class="text-thong-tin-sinh-vien">
+          <p>
+            Thông tin sinh viên
+          </p>
+          <hr style="width:96%;color:#cccccc" />
+        </div>
+        <script>
+          var a = document.getElementsByClassName("thong-tin-sinh-vien");
+          console.log(a)
+        </script>
+        <div class="row" style="margin-left:30px;">
+          <div class="nav anh-sinh-vien col col-sm-3">
+            <img
+              src="https://scontent.fdad3-4.fna.fbcdn.net/v/t1.6435-9/125804649_1537388186446618_1908998491894744380_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=fWPNR0pibKMAX9MsQ95&tn=4shL0tcfUZx9fRYh&_nc_ht=scontent.fdad3-4.fna&oh=00_AT_mPbnffoKAxRdDAuq2ApriWvhYkbugDJfGscLfH3s4xw&oe=61E62BEA"
+              alt="ảnh thẻ sinh viên" class="img-responsive" />
+            <a class="" href="/sinhvien/thongtincanhan?MaSinhVien={{ttsv.MaSinhVien}}">
+              Xem chi tiết
+            </a>
+          </div>
+          <div class="thong-tin-chi-tiet col-sm-9 row">
+            <div class="col">
+              <label class="col-sm-12">
+                MSSV:
+                <span>
+                  {{ttsv.MaSinhVien}}
+                </span>
+              </label>
+              <label class="col-sm-12">
+                Họ tên:
+                <span>
+                  {{ttsv.TenSinhVien}}
+                </span>
+              </label>
+              <label class="col-sm-12">
+                Giới tính:
+                <span>
+                  {{ttsv.GioiTinh}}
+                </span>
+              </label>
+              <label class="col-sm-12">
+                Ngày sinh:
+                <span>
+                  {{ngay ttsv.NamSinh}}
+                </span>
+              </label>
+              <label class="col-sm-12">
+                Nơi sinh:
+                <span>
+                  {{ttsv.NoiSinh}}
+                </span>
+              </label>
+            </div>
+            <div class="col">
+              <label class="col-sm-12">
+                Lớp học:
+                <span>
+                  {{ttsv.TenLop}}
+                </span>
+              </label>
+
+              <label class="col-sm-12">
+                Bậc đào tạo:
+                <span>
+                  {{ttsv.BacDaoTao}}
+                </span>
+              </label>
+              <label class="col-sm-12">
+                Loại hình đào tạo:
+                <span>
+                  {{ttsv.LoaiHinhDaoTao}}
+                </span>
+              </label>
+              <label class="col-sm-12">
+                Khoa:
+                <span>
+                  {{ttsv.TenKhoa}}
+                </span>
+              </label>
+              <label class="col-sm-12">
+                Ngành:
+                <span>
+                  {{ttsv.TenChuyenNganh}}
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{! Nhắc nhở + lịch }}
+      <div class="nhac-nho-lich col">
+        <div class="nhac-nho row">
+          <div class="col">
+            <div class="nhac-nho-moi">
+              <label>
+                Nhắc nhở mới, chưa xem
+              </label>
+            </div>
+            <div class="so-va-icon row">
+              <div class="col" style="color:#667580; font-size: 38px;font-weight: 600; margin: -10px 0 -10px 0;">
+                0
+              </div>
+              <div class="icon-nhac-nho text-right col">
+                <i class="icon fa fa-bell-o" aria-hidden="true" style="color:#667580;"></i>
+              </div>
+              <div id='root'></div>
+
+            </div>
+            <div class="xem-chi-tiet text-left">
+              <a class="">
+                Xem chi tiết
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="lich row">
+          <a href="/sinhvien/xemlich">
+            <div class="lich-hoc col">
+              <div class="lich-hoc-trong-tuan">
+                <label>
+                  Lịch học trong tuần
+                </label>
+              </div>
+              <div class="so-va-icon row">
+                <div class="col" style="color:#4da1e8; font-size: 38px;font-weight: 600; margin: -10px 0 -10px 0;">
+                  5
+                </div>
+                <div class="icon-lich-hoc text-right col">
+                  <i class="icon fa fa-calendar" aria-hidden="true" style="color:#4da1e8;"></i>
+                </div>
+              </div>
+              <div class="xem-chi-tiet text-left">
+                <a class="/sinhvien/xemlich">
+                  Xem chi tiết
+                </a>
+              </div>
+            </div>
+          </a>
+          <a href="/sinhvien/xemlich">
+            <div class="lich-thi col">
+              <div class="lich-thi-trong-tuan">
+                <label>
+                  Lịch thi trong tuần
+                </label>
+              </div>
+              <div class="so-va-icon row">
+                <div class="col" style="color:#FF9205; font-size: 38px;font-weight: 600; margin: -10px 0 -10px 0;">
+                  0
+                </div>
+                <div class="icon-lich-thi text-right col">
+                  <i class="icon fa fa-calendar-check-o" aria-hidden="true" style="color:#FF9205;"></i>
+                </div>
+              </div>
+              <div class="xem-chi-tiet text-left">
+                <a class="/sinhvien/xemlich">
+                  Xem chi tiết
+                </a>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    {{! row 2 }}
+    <div class="nav-row-home-2 row">
+      <a href="/sinhvien/xemlich">
+        <div class="chuc-nang-home col">
+          <div class="text-center">
+            <img src="https://cnm-lab3.s3.ap-southeast-1.amazonaws.com/hotrosinhvienIUH/calender.png" class="" />
+          </div>
+          <div class="xem-chi-tiet text-center">
+            <a href="/sinhvien/xemlich">
+              Lịch theo tuần
+            </a>
+          </div>
+        </div>
+      </a>
+
+      <a href="/sinhvien/ketquahoctap">
+        <div class="chuc-nang-home col">
+          <div class="text-center">
+            <img src="https://cnm-lab3.s3.ap-southeast-1.amazonaws.com/hotrosinhvienIUH/chart.png" alt="home-calendar"
+              class="" />
+          </div>
+          <div class="xem-chi-tiet text-center">
+            <a href="/sinhvien/ketquahoctap">
+              Kết quả học tập
+            </a>
+          </div>
+        </div>
+      </a>
+
+      <a href="/sinhvien/dangkyhocphan">
+        <div class="chuc-nang-home col">
+          <div class="text-center">
+            <img src="https://cnm-lab3.s3.ap-southeast-1.amazonaws.com/hotrosinhvienIUH/dkph.png" alt="home-calendar"
+              class="" />
+          </div>
+          <div class="xem-chi-tiet text-center">
+            <a href="/sinhvien/dangkyhocphan">
+              Đăng ký học phần
+            </a>
+          </div>
+        </div>
+      </a>
+
+      <a href="#">
+        <div class="chuc-nang-home col">
+          <div class="text-center">
+            <img src="https://cnm-lab3.s3.ap-southeast-1.amazonaws.com/hotrosinhvienIUH/congNo.png" alt="home-calendar"
+              class="" />
+          </div>
+          <div class="xem-chi-tiet text-center">
+            <a class="">
+              Tra cứu công nợ
+            </a>
+          </div>
+        </div>
+      </a>
+
+      <a href="#">
+        <div class="chuc-nang-home col">
+          <div class="text-center">
+            <img src="https://cnm-lab3.s3.ap-southeast-1.amazonaws.com/hotrosinhvienIUH/thanhToan.png"
+              alt="home-calendar" class="" />
+          </div>
+          <div class="xem-chi-tiet text-center">
+            <a class="">
+              Thanh toán trực tuyến
+            </a>
+          </div>
+        </div>
+      </a>
+
+      <a href="#">
+        <div class="chuc-nang-home col">
+          <div class="text-center">
+            <img src="https://cnm-lab3.s3.ap-southeast-1.amazonaws.com/hotrosinhvienIUH/phieuThu.png"
+              alt="home-calendar" class="" />
+          </div>
+          <div class="xem-chi-tiet text-center">
+            <a class="">
+              Phiếu thu tổng hợp
+            </a>
+          </div>
+        </div>
+      </a>
+
+      <a href="#">
+        <div class="chuc-nang-home col">
+          <div class="text-center">
+            <img src="https://cnm-lab3.s3.ap-southeast-1.amazonaws.com/hotrosinhvienIUH/tienDo.png" alt="home-calendar"
+              class="" />
+          </div>
+          <div class="xem-chi-tiet text-center">
+            <a class="">
+              Lịch theo tiến độ
+            </a>
+          </div>
+        </div>
+      </a>
+
+      <a href="#">
+        <div class="chuc-nang-home-1 col">
+          <div class="text-center">
+            <img src="https://cnm-lab3.s3.ap-southeast-1.amazonaws.com/hotrosinhvienIUH/nhacNho.png" alt="home-calendar"
+              class="" />
+          </div>
+          <div class="xem-chi-tiet text-center">
+            <a class="">
+              Nhắc nhở
+            </a>
+          </div>
+        </div>
+      </a>
+
+    </div>
+    {{! row 3 }}
+    <div class="nav-row-home-3 row">
+      <div class="ket-qua-hoc-tap col-md-5">
+        <div class="row">
+          <div class="text-thong-tin-sinh-vien col-md-8">
+            <p>
+              Kết quả học tập
+            </p>
+          </div>
+          <div class="actions option-hoc-ky">
+            <select class="form-control" id="cboIDDotThongKeKQHT">
+              <option value="">
+                Chọn học kỳ
+              </option>
+            </select>
+          </div>
+          <hr style="width:96%;color:#cccccc;margin-top: 5px;" />
+        </div>
+        <div style="">
+          <canvas id="myBarChart" style="width:100%;max-width:600px"></canvas>
+        </div>
+        <script>
+          var xValues = ["Anh Văn 4", "Công nghệ phần mềm", "Kỹ thuật điện tử",
+            "Lập trình phần tán với công nghệ Java", "Nhập môn an toàn thông",
+            "Những vấn đề về xã hội và nghề nghiệp", "Phát triển ứng Java ",
+            "Phương pháp tính",]; var yValues = [7.6, 6.4, 7.5, 7, 7.2, 7, 6.7,
+              9.3]; var barColors = ["red", "green", "blue", "orange", "brown",
+                "green", "blue", "orange",]; new Chart("myBarChart", {
+                  type: "bar",
+                  data: {
+                    labels: xValues, datasets: [{
+                      backgroundColor: barColors,
+                      data: yValues
+                    }],
+                  }, options: {
+                    legend: { display: false }, title: {
+                      display: true, text: "Điểm trung bình lớp học phần",
+                    }, scales: {
+                      xAxes: [{
+                        time: { unit: "month" }, gridLines: { display: false },
+                        ticks: { maxTicksLimit: 15 },
+                      },], yAxes: [{
+                        ticks: {
+                          min: 0, max:
+                            10, maxTicksLimit: 10
+                        }, gridLines: { display: true },
+                      },],
+                    },
+                  },
+                });
+
+        </script>
+      </div>
+      <div class="tien-do-hoc-tap col-md-3 col">
+        <div class="text-thong-tin-sinh-vien">
+          <p>
+            Tiến độ học tập
+          </p>
+        </div>
+        <hr style="width:96%;color:#cccccc" />
+        <div class="div1" style="width:500px; margin-left: -100px;">
+          <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+        </div>
+        <div class="div22" style="width:350px; margin-left: -100px;">
+          <canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
+        </div>
+        <script>
+          var xValues = ["Tổng số tín chỉ"]; var yValues = [154]; var barColors
+            = ["#7CB5EC"]; new Chart("myChart", {
+              type: "doughnut", data: {
+                labels: null, datasets: [{
+                  backgroundColor: barColors, data: yValues
+                }]
+              }, options: {}
+            });
+        </script>
+        <script>
+          var xValues = ["Số tín chỉ đã học", "Số tín còn lại"]; var yValues =
+            [125, 154 - 125]; var barColors = ["#90ED7D", "#DDFAD8"]; new
+              Chart("myChart2", {
+                type: "doughnut", data: {
+                  labels: null, datasets:
+                    [{ backgroundColor: barColors, data: yValues }]
+                }, options: {}
+              });
+        </script>
+        <p style="font-size: 16px;color: #003f65;
+                font-weight: 800;margin:15px 0 0 130px;">125/154</p>
+      </div>
+      <div class="lop-hoc-phan col">
+        <div class="row">
+          <div class="text-thong-tin-sinh-vien col-md-7">
+            <p>
+              Lớp học phần
+            </p>
+          </div>
+          <div class="actions option-hoc-ky">
+            <select class="form-control" id="HocKyHienThiLopHocPhan">
+              <option value="Chọn học kỳ">
+                Chọn học kỳ
+              </option>
+
+
+            </select>
+          </div>
+          <hr style="width:96%;color:#cccccc;margin-top: 5px;" />
+
+          <div class="panel-heading clearfix row">
+            <span class="col-md-9">Môn học/học phần</span>
+            <span class="text-center col-md-3">Số tín chỉ</span>
+          </div>
+          <div class="panel-scroll border-scroll row" tabindex="0" style="overflow: hidden; outline: none">
+            <table class="table table-striped" id="tblThonTinHocPhan" style="text-align: center;">
+
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const root = document.getElementById("root");
+  const h1 = document.createElement("h1");
+  root.appendChild(h1);
+  $(document).ready(function () {
+    LoadThongTinHocKy();
+    LoadThongTinHocKyLopHocPhan();
+    OnClicHocKy();
+  });
+  function LoadThongTinHocKy() {
+    $.ajax({
+      url: '/sinhvien/hienthihocky',
+      type: 'get',
+      dataType: 'json'
+    }).done(function (result) {
+      if (result.length > 0) {
+        for (let i = 0; i < result.length; i++) {
+          let themHocKy = ` 
+               <option value= "`+ result[i].MaHocKy + `">` + result[i].TenHocKy + `  ` + result[i].Nam + `</option>`;
+
+          $('#cboIDDotThongKeKQHT').append(themHocKy);
+        }
+
+      }
+    });
+  }
+  function LoadThongTinHocKyLopHocPhan() {
+    $.ajax({
+      url: '/sinhvien/hienthihocky',
+      type: 'get',
+      dataType: 'json'
+    }).done(function (result) {
+      if (result.length > 0) {
+
+        for (let i = 0; i < result.length; i++) {
+          let themHocKy = ` 
+               <option value= "`+ result[i].MaHocKy + `">` + result[i].TenHocKy + `  ` + result[i].Nam + `</option>`;
+
+          $('#HocKyHienThiLopHocPhan').append(themHocKy);
+        }
+
+      }
+    });
+  }
+  function OnClicHocKy() {
+    $('#HocKyHienThiLopHocPhan').change(function () {
+      let MaHocKy = $("#HocKyHienThiLopHocPhan").val();
+
+      ThongTinLopHocPhanDangKy(MaHocKy);
+
+
+    });
+  }
+  function ThongTinLopHocPhanDangKy(MaHocKy) {
+    $.ajax({
+      url: '/sinhvien/xemlophocphandangky/' + MaHocKy,
+      type: 'get',
+      dataType: 'json',
+    }).done(function (result) {
+      if (result.length > 0) {
+        for (let i = 0; i < result.length; i++) {
+          let themNoiDungHocPhan = `
+            <tbody>
+                <tr>
+                  <td width="80%">
+                    <div>
+                      <a href="">`+ result[i].MaLopHP + `</a>
+                    </div>
+                    <div class="name">
+                      `+ result[i].TenMonHoc + `
+                    </div>
+                  </td>
+                  <td width="20%">
+                    <div class="text-center">`+ result[i].SoTC + `</div>
+                  </td>
+                </tr>
+              </tbody>`;
+          $('#tblThonTinHocPhan').append(themNoiDungHocPhan);
+        }
+      }
+    });
+  }
+
+</script>

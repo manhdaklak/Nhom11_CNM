@@ -1,0 +1,396 @@
+{{>headerQuanLy}}
+<div class="navbar quan-ly-mon-hoc">
+    <div class="nav quan-ly-mon-hoc-1">
+        {{!-- ==================Menu --}}
+        <div class="col-sm-3 ">
+            {{>menubar}}
+        </div>
+
+        <div class="col-sm-9 col-lg-9" style="background-color: white;">
+            <div class="container mt-3">
+                <h3>Quản Lý Giảng Viên</h3>
+                <br />
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#home">Giảng Viên</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#menu1">Danh Sách Giảng Viên</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div id="home" class="container tab-pane fade"><br />
+                        <h5>Thông tin học vấn</h5>
+                        <form action="/" method="post" enctype="multipart/form"
+                            style="border: 1px solid black; padding: 10px;">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Mã Số Giảng Viên: </label>
+                                        <input type="text" class="form-control" placeholder="18078101" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Họ Tên Giảng Viên: </label>
+                                        <input type="text" class="form-control" name="TenGiangVien" id="txtTenGiangVien">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Giới tính:</label>
+                                        <select class="form-control" id="GioiTinh" name="GioiTinh">
+                                            <option>Nam</option>
+                                            <option>Nữ</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Ngày sinh: </label>
+                                        <input type="date" id="start" name="NamSinh" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Trình độ học vấn: </label>
+                                        <select class="form-control" id="TrinhDo" name="TrinhDo">
+                                            <option>Thạc sĩ</option>
+                                            <option>Tiến sĩ</option>
+                                            <option>PGS.TS</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Ngày vào trường: </label>
+                                        <input type="date" id="start" name="NgayVaoTruong" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Khoa/ Viện:</label>
+                                        <select class="form-control" id="ChonKhoa" >
+                                            <option>Chọn khoa</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="sel1">Ngành:</label>
+                                        <select class="form-control" id="ChonChuyenNganh" >
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h5>Thông tin cá nhân</h5>
+                            <div class="row">
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Dân tộc:</label>
+                                        <input type="text" class="form-control" name="DanToc">
+                                    </div>
+                                </div>
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Tôn giáo:</label>
+                                        <input type="text" class="form-control" name="TonGiao">
+                                    </div>
+                                </div>
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Ảnh 3x4:</label>
+                                        <input type="text" class="form-control" name="AnhDaiDien">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Số CMND/ CCCD:</label>
+                                        <input type="text" class="form-control" name="SoCMND">
+                                    </div>
+                                </div>
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Ngày cấp:</label>
+                                        <input type="date" id="end" name="end" class="form-control" name="NgayCap">
+                                    </div>
+                                </div>
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Nơi cấp:</label>
+                                        <input type="text" class="form-control" name="NoiCap">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Điện thoại:</label>
+                                        <input type="text" class="form-control" name="SDT">
+                                    </div>
+                                </div>
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Email:</label>
+                                        <input type="text" class="form-control" name="Email">
+                                    </div>
+                                </div>
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Nơi sinh:</label>
+                                        <input type="text" class="form-control" name="NoiSinh">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Ngày vào Đoàn:</label>
+                                        <input type="date" id="end" name="NgayVaoDoan" class="form-control">
+                                    </div>
+                                </div>
+                                <div class=" col-sm-4 col-lg-4">
+                                    <div class="form-group">
+                                        <label for="sel1">Ngày vào Đảng:</label>
+                                        <input type="date" id="end" name="NgayVaoDang" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class=" col-sm-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label for="sel1">Điện chỉ liên hệ:</label>
+                                        <input type="text" class="form-control" name="DiaChiLienHe">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" col-sm-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label for="sel1">Hộ khẩu thường trú:</label>
+                                        <input type="text" class="form-control" name="HoKhauThuongTru">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <button id="btnThemGiangVien" onclick="ThemGiangVien(this)" class="btn btn-primary" >THÊM</button>
+                                </div>
+                                <div class="col-lg-3">
+                                    <button type="button" class="btn btn-warning">CHỈNH SỬA</button>
+                                </div>
+                                <div class="col-lg-3">
+                                    <button type="button" class="btn btn-secondary">LÀM MỚI</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="menu1" class="container tab-pane active"><br />
+                        <form action="">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-table me-1"></i>
+                                    Bảng hiển thị danh sách giảng viên
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-bordered" id="table_id">
+                                        <thead>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>MSGV</th>
+                                                <th>Họ Tên</th>
+                                                <th>Giới Tính</th>
+                                                <th>Ngày Sinh </th>
+                                                <th>Trình độ </th>
+                                                <th>Khoa</th>
+                                                <th>Chuyên Ngành</th>
+                                                <th>Thao Tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each giangviens}}
+                                            <tr>
+                                                <td>{{sum @index 1}}</td>
+                                                <td>{{this.MaGiangVien}}</td>
+                                                <td>{{this.TenGiangVien}}</td>
+                                                <td>{{this.GioiTinh}}</td>
+                                                <td>{{this.NamSinh}}</td>
+                                                <td>{{this.TrinhDo}}</td>
+                                                <td>{{this.TenKhoa}} </td>
+                                                <td>{{this.TenChuyenNganh}}</td>
+                                                <td colspan="3">
+                                                    <a href="#" class="btn btn-success">Xem Chi tiết</a>
+                                                    <a href="#" class="btn btn-warning">Chỉnh Sửa</a>
+                                                    <a class="btn btn-danger"
+                                                      href="/quanly-giangvien/delete?MaGiangVien={{this.MaGiangVien}}" onclick="return confirm ('Bạn có chắc muốn xóa không ?')">Xóa</a>
+                                                </td>
+                                                {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  $(document).ready(function () {
+  /**
+   * Upload single file to SpringBoot
+   * at RestAPI: /api/upload/file/single
+   */
+  $("#uploadSingleFileForm").submit(function (evt) {
+    evt.preventDefault();
+
+    let formData = new FormData($(this)[0]);
+
+    $.ajax({
+      url: "/quanly-giangvien/upload/api",
+      type: "POST",
+      data: formData,
+      async: false,
+      cache: false,
+      contentType: false,
+      enctype: "multipart/form-data",
+      processData: false,
+      success: function (response) {
+        if (response.status !== "error") {
+          let displayInfo = response.message + response.filename;
+            window.location.href = '/quanly-giangvien/'
+            alert(displayInfo);
+
+        } else {
+          let error = response.error;
+          alert(error);
+        }
+      },
+      error: function (e) {
+        alert("Fail! " + e);
+
+      },
+    });
+
+    return false;
+  });
+});
+</script>
+<script>
+$(document).ready(function () {
+    // hiển thị thông tin về các khoa
+    function loadKhoa() {
+        $.ajax({
+            url: '/quanly-giangvien/loadkhoa',
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+
+                    let themKhoa = `
+                            <option value = "`+ result[i].MaKhoa + `">` + result[i].TenKhoa + `</option>`;
+                    $('#ChonKhoa').append(themKhoa);
+                }
+            }
+
+        });
+    }
+    loadKhoa();
+
+    // khi click chọn khoa sẽ hiển thị ra chuyên ngành tương ứng với khoa
+    $('#ChonKhoa').change(function () {
+        $("#ChonChuyenNganh").empty();
+        let MaKhoa = $("#ChonKhoa").val();
+        $.ajax({
+            url: '/quanly-giangvien/loadchuyennganh/' + MaKhoa,
+            type: 'get',
+            dataType: 'json'
+        }).done(function (result) {
+            if (result.length > 0) {
+                for (let i = 0; i < result.length; i++) {
+                    let themChuyeNganh = `
+                        <option value = "`+ result[i].MaChuyenNganh + `">` + result[i].TenChuyenNganh + `</option>`;
+                    $('#ChonChuyenNganh').append(themChuyeNganh);
+                }
+            }
+
+        });
+    })
+
+  
+});
+// them sinh vien moi
+function ThemGiangVien() {
+    debugger;
+    var tengiangvien = $('input[name="TenGiangVien"]').val();
+    var gioitinh = $('#GioiTinh').val();
+    var namsinh = $('input[name="NamSinh"]').val();
+    var noisinh = $('input[name="NoiSinh"]').val();
+    var trinhdo = $('#TrinhDo').val();
+    var khoa = $("#ChonKhoa").val();
+    var chuyennganh = $('#ChonChuyenNganh').val();
+    var ngayvaotruong = $('input[name="NgayVaoTruong"]').val();
+    var dantoc = $('input[name="DanToc"]').val();
+    var tongiao = $('input[name="TonGiao"]').val();
+    var anh = $('input[name="AnhDaiDien"]').val();
+    var socmnd = $('input[name="SoCMND"]').val();
+    var ngaycap = $('input[name="NgayCap"]').val();
+    var noicap = $('input[name="NoiCap"]').val();
+    var sdt = $('input[name="SDT"]').val();
+    var email = $('input[name="Email"]').val();
+    var ngayvaodoan = $('input[name="NgayVaoDoan"]').val();
+    var ngayvaodang = $('input[name="NgayVaoDang"]').val();
+    var diachilienhe = $('input[name="DiaChiLienHe"]').val();
+    var hokhau = $('input[name="HoKhauThuongTru"]').val();
+
+    $.ajax({
+        url: '/quanly-giangvien/api',
+        type: 'post',
+        data:
+        {
+            tengiangvien: tengiangvien,
+            gioitinh: gioitinh,
+            namsinh: namsinh,
+            trinhdo: trinhdo,
+            noisinh:noisinh,
+            ngayvaotruong:ngayvaotruong,
+            khoa: khoa,
+            chuyennganh: chuyennganh,
+            dantoc: dantoc,
+            tongiao: tongiao,
+            anh: anh,
+            socmnd: socmnd,
+            ngaycap: ngaycap,
+            noicap: noicap,
+            sdt: sdt,
+            email: email,
+            ngayvaodoan: ngayvaodoan,
+            ngayvaodang: ngayvaodang,
+            diachilienhe: diachilienhe,
+            hokhau: hokhau
+        },
+        dataType: 'json',
+        success: function () {
+            window.location.href = '/quanly-giangvien/'
+        }
+    });
+}
+
+</script>

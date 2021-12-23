@@ -1,0 +1,53 @@
+@charset "UTF-8";
+:root {
+  -gray: #6c757d;
+  -blue: #4da1e8;
+  -textbold: #333333;
+  -text: #667580;
+  -textblue: #1da1f2;
+  -line: #cccccc;
+  -textred: #ff0000;
+  -headertable: #f3f7f9;
+  -textmiddle: #003f65;
+  -textmiddle022: #0c6fbe;
+  -inputdadien: #e8f0fe;
+}
+
+.body-main-ket-qua-hoc-tap {
+  background-color: #e7ecf0;
+  justify-content: center;
+}
+.ket-qua-hoc-tap-sv {
+  /* display: flex; */
+  width: 90%;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  background-color: white;
+  border-radius: 4px;
+}
+.ket-qua-hoc-tap-sv .text-title > p {
+  margin: 10px 10px 5px 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #667580;
+}
+.ket-qua-hoc-tap-sv .main-ket-qua-hoc-tap {
+  justify-content: center;
+  margin-left: 10px;
+}
+.ket-qua-hoc-tap-sv .main-ket-qua-hoc-tap table thead {
+  background-color: #f3f7f9;
+  color: #1da1f2;
+}
+.ket-qua-hoc-tap-sv .main-ket-qua-hoc-tap table thead th {
+  border-bottom: none;
+}
+.ket-qua-hoc-tap-sv .main-ket-qua-hoc-tap table tbody .hoc-ky {
+  background-color: #f5f5f5;
+  color: #578ebe;
+  font-weight: bold;
+}
+.ket-qua-hoc-tap-sv .main-ket-qua-hoc-tap table tbody {
+  color: #667580;
+}

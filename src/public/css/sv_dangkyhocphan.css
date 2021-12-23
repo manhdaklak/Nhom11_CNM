@@ -1,0 +1,225 @@
+@charset "UTF-8";
+:root {
+  -gray: #6c757d;
+  -blue: #4da1e8;
+  -textbold: #333333;
+  -text: #667580;
+  -textblue: #1da1f2;
+  -line: #cccccc;
+  -textred: #ff0000;
+  -headertable: #f3f7f9;
+  -textmiddle: #003f65;
+  -textmiddle022: #0c6fbe;
+  -inputdadien: #e8f0fe;
+}
+
+.body-main-dang-ky-hoc-phan {
+  background-color: #e7ecf0;
+  justify-content: center;
+}
+.dang-ky-hoc-phan-sv {
+  width: 90%;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  background-color: white;
+  border-radius: 4px;
+}
+.dang-ky-hoc-phan-sv .cl-red {
+  color: red;
+  font-weight: bold;
+}
+
+.dang-ky-hoc-phan-sv .text-title > p {
+  margin: 10px 10px 5px 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #667580;
+}
+/* Main */
+/* Chọn đợt đăng ký */
+.dang-ky-hoc-phan-sv .main-dkhp .chon-dot-dk {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.dang-ky-hoc-phan-sv .main-dkhp .chon-dot-dk .loai-dang-ky {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.dang-ky-hoc-phan-sv .main-dkhp .loai-dang-ky .mt-radio {
+  position: relative;
+  color: #667580;
+}
+.dang-ky-hoc-phan-sv .main-dkhp .loai-dang-ky .mt-radio input {
+  position: absolute;
+  top: 9px;
+  left: -16px;
+  border: 1px solid transparent;
+  background-color: rgba(255, 0, 0, 0);
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-radius: 6px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.dang-ky-hoc-phan-sv .main-dkhp .loai-dang-ky .mt-radio input:checked {
+  background-color: #888888;
+}
+.dang-ky-hoc-phan-sv .main-dkhp .loai-dang-ky .mt-radio span {
+  border: 1px solid transparent;
+  background-color: #e6e6e6;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 3px;
+  left: -22px;
+  border-radius: 18px;
+}
+.dang-ky-hoc-phan-sv .main-dkhp #monHPChoDangKy,
+.dang-ky-hoc-phan-sv .main-dkhp #lopHPChoDangKy,
+.dang-ky-hoc-phan-sv .main-dkhp #box_monHocPhan_DaDangKy {
+  padding: 5px;
+  margin-bottom: 30px;
+}
+.dang-ky-hoc-phan-sv .main-dkhp h3,
+.body-main-dang-ky-hoc-phan .model-xem-lich-dkhp .container-model h3 {
+  color: #0c6fbe;
+  font-size: 16px;
+  margin-left: 5px;
+  font-weight: bold;
+}
+.dang-ky-hoc-phan-sv .main-dkhp thead {
+  background-color: #f3f7f9;
+  color: #1da1f2;
+  font-size: 14px;
+}
+.dang-ky-hoc-phan-sv .main-dkhp tbody {
+  color: #667580;
+  font-size: 14px;
+}
+.dang-ky-hoc-phan-sv .main-dkhp #table_lhpchodangky tbody {
+  color: #003f65;
+}
+.dang-ky-hoc-phan-sv .main-dkhp #table_lhpchodangky tbody .name,
+.dang-ky-hoc-phan-sv .main-dkhp #tbChiTietDKHP tbody .name {
+  font-weight: bold;
+}
+.dang-ky-hoc-phan-sv .main-dkhp #tbChiTietDKHP .ly-thuyet {
+  background-color: rgba(255, 235, 59, 0.3);
+}
+.dang-ky-hoc-phan-sv .main-dkhp #tbChiTietDKHP .thuc-hanh {
+  background-color: rgba(255, 235, 59, 0.7);
+}
+.dang-ky-hoc-phan-sv .main-dkhp .btnDangKy {
+  background-color: #1da1f2;
+  border: none;
+  width: 250px;
+  height: 45px;
+  color: white;
+  font-size: 18px;
+}
+.dang-ky-hoc-phan-sv .main-dkhp .btnXemXoa {
+  background-color: white;
+  border: 1px solid #ccc;
+  color: #1da1f2;
+}
+.dang-ky-hoc-phan-sv .main-dkhp .btnXemXoa:hover {
+  background-color: #1da1f2;
+  border: none;
+  color: white;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-dkhp {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-dkhp.open {
+  display: flex;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-dkhp .container-model {
+  width: 75%;
+  height: 80%;
+  background-color: white;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-dkhp .header-model {
+  display: flex;
+  justify-content: flex-end;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-dkhp .header-model i {
+  color: #1da1f2;
+  font-size: 26px;
+  cursor: pointer;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-dkhp .container-model .body-model {
+  padding: 5px;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-dkhp .body-model thead {
+  background-color: #f3f7f9;
+  color: #1da1f2;
+  font-size: 14px;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-trung .body-model tbody {
+  color: #667580;
+  font-size: 14px;
+}
+/* Model xem lịch trùng */
+.body-main-dang-ky-hoc-phan .model-xem-lich-trung .container-model-lich-trung h3 {
+  color: #0c6fbe;
+  font-size: 16px;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.body-main-dang-ky-hoc-phan .model-xem-lich-trung {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.body-main-dang-ky-hoc-phan .model-xem-lich-trung.open {
+  display: inline-flex;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-trung .container-model-lich-trung{
+  width: 75%;
+  height: 80%;
+  background-color: white;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-trung .header-model-lich-trung {
+  display: flex;
+  justify-content: flex-end;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-trung .header-model-lich-trung i {
+  color: #1da1f2;
+  font-size: 26px;
+  cursor: pointer;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-trung .container-model-lich-trung .body-model-lich-trung {
+  padding: 5px;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-trung .body-model-lich-trung thead {
+  background-color: #f3f7f9;
+  color: #1da1f2;
+  font-size: 14px;
+}
+.body-main-dang-ky-hoc-phan .model-xem-lich-trung .body-model-lich-trung tbody {
+  color: #667580;
+  font-size: 14px;
+}

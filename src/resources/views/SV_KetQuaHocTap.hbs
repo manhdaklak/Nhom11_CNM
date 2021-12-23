@@ -1,0 +1,354 @@
+{{>header}}
+<div class="navbar body-main-ket-qua-hoc-tap">
+  <div class="ket-qua-hoc-tap-sv">
+    {{! Title }}
+    <div class="text-title">
+      <p>
+        Kết quả học tập
+      </p>
+      <hr style="width:98%;color:#cccccc; margin-top:0px" />
+    </div>
+
+    {{! Main }}
+    <div
+      class="gr-table border-scroll dataTables_scroll main-ket-qua-hoc-tap"
+      style="overflow: hidden; outline: none"
+      tabindex="0"
+    >
+      <div
+        class="dataTables_scrollHead"
+        style=" overflow: hidden;border: 0px;width: 99%; backgroundColor:red"
+      >
+        <div class="dataTables_scrollHeadInner">
+          <table
+            class="table-responsive table-custom table table-bordered text-center dataTable no-footer"
+            width="100%"
+            role="grid"
+            {{! style="margin-left: 0px; width: 98%;" }}
+          >
+            <thead>
+              <tr role="row" style="height: 53px">
+                <th
+                  rowspan="3"
+                  style="width: 20px"
+                  lang="kqht-stt"
+                  class="sorting_disabled"
+                  colspan="1"
+                >
+                  <div>STT</div>
+                </th>
+                <th
+                  rowspan="3"
+                  style="width: 80px;min-width: 80px !important;   "
+                  lang="kqht-malhp"
+                  class="sorting_disabled"
+                  colspan="1"
+                >
+                  <div>Mã lớp học phần</div>
+                </th>
+                <th
+                  rowspan="3"
+                  style="width: 200px"
+                  lang="kqht-tenlhp"
+                  class="sorting_disabled"
+                  colspan="1"
+                >
+                  <div>Tên môn học/học phần</div>
+                </th>
+                <th
+                  rowspan="3"
+                  style="width: 30px"
+                  lang="kqht-stc"
+                  class="sorting_disabled"
+                  colspan="1"
+                >
+                  <div>Số tín chỉ</div>
+                </th>
+                <th colspan="5" lang="Row_1_3" rowspan="1">
+                  Thường xuyên
+                </th>
+                <th
+                  rowspan="3"
+                  lang="Row_1_2"
+                  class="sorting_disabled"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  Giữa kỳ
+                </th>
+                <th colspan="5" lang="Row_1_5" rowspan="1">
+                  Thực hành
+                </th>
+                <th
+                  rowspan="3"
+                  lang="Row_1_8"
+                  class="sorting_disabled"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  Cuối kỳ
+                </th>
+                <th
+                  rowspan="3"
+                  lang="Row_1_10"
+                  class="sorting_disabled"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  Điểm<br />tổng kết
+                </th>
+                <th
+                  rowspan="3"
+                  lang="DiemTinChi"
+                  class="sorting_disabled"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  Thang<br />điểm 4
+                </th>
+                <th
+                  rowspan="3"
+                  lang="DiemChu"
+                  class="sorting_disabled"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  Điểm<br />chữ
+                </th>
+                <th
+                  rowspan="3"
+                  lang="XepLoai"
+                  class="sorting_disabled"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  Xếp loại
+                </th>
+                <th
+                  rowspan="3"
+                  lang="GhiChu"
+                  class="sorting_disabled"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  Ghi chú
+                </th>
+              </tr>
+              <tr role="row" style="height: 40px">
+                <th colspan="5" lang="Row_2_3_2" rowspan="1">
+                  LT Hệ số 1
+                </th>
+                <th
+                  rowspan="2"
+                  lang="DiemThucHanh1"
+                  class="sorting_disabled"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  1
+                </th>
+                <th
+                  rowspan="2"
+                  lang="DiemThucHanh2"
+                  class="sorting_disabled"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  2
+                </th>
+                <th
+                  rowspan="2"
+                  lang="DiemThucHanh3"
+                  class="sorting_disabled"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  3
+                </th>
+                <th
+                  rowspan="2"
+                  lang="DiemThucHanh4"
+                  class="sorting_disabled"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  4
+                </th>
+                <th
+                  rowspan="2"
+                  lang="DiemThucHanh5"
+                  class="sorting_disabled"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  5
+                </th>
+              </tr>
+              <tr role="row" style="height: 53px">
+                <th
+                  lang="DiemHeSo11"
+                  class="sorting_disabled"
+                  rowspan="1"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  1
+                </th>
+                <th
+                  lang="DiemHeSo12"
+                  class="sorting_disabled"
+                  rowspan="1"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  2
+                </th>
+                <th
+                  lang="DiemHeSo13"
+                  class="sorting_disabled"
+                  rowspan="1"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  3
+                </th>
+                <th
+                  lang="DiemHeSo14"
+                  class="sorting_disabled"
+                  rowspan="1"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  4
+                </th>
+                <th
+                  lang="DiemHeSo15"
+                  class="sorting_disabled"
+                  rowspan="1"
+                  colspan="1"
+                  style="width: 30px"
+                >
+                  5
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {{!-- <tr role="row" class="odd hoc-ky" style="height: 31px">
+                <td colspan="21" class="text-left row-head">
+                  HK1 (2018-2019)
+                </td>
+
+              </tr> --}}
+              {{#each ketquahoctaps}}
+              <tr role="row" class="even" style="height: 71px">
+                <td style="width: 100px !important">
+                  <div style="">{{sum @index 1}}</div>
+                </td>
+                <td style="width: 200px !important">
+                  <div style="">{{this.MaLopHP}}</div>
+                </td>
+                <td style="width: 200px !important" class="text-left">
+                  <div style="word-break: break-word">
+                    {{this.TenMonHoc}}
+                  </div>
+                </td>
+                <td style="width: 100px !important">
+                  <div style="display: inline-table">
+                    {{this.SoTC}}
+                  </div>
+                </td>
+                <td class="" title="DiemHeSo11">{{this.DiemThuongKy}}</td>
+                <td class="" title="DiemHeSo12">{{this.DiemThuongKy2}}</td>
+                <td class="" title="DiemHeSo13">{{this.DiemThuongKy3}}</td>
+                <td class="" title="DiemHeSo14">{{this.DiemThuongKy4}}</td>
+                <td class="" title="DiemHeSo15">{{this.DiemThuongKy5}}</td>
+                <td class="" title="DiemChuyenCan1">{{this.DiemGiuaKy}}</td>
+                <td class="" title="DiemThucHanh1">{{this.DiemThucHanh}}</td>
+                <td class="" title="DiemThucHanh2">{{this.DiemThucHanh2}}</td>
+                <td class="" title="DiemThucHanh3">{{this.DiemThucHanh3}}</td>
+                <td class="" title="DiemThucHanh4">{{this.DiemThucHanh4}}</td>
+                <td class="" title="DiemThucHanh5">{{this.DiemThucHanh5}}</td>
+                <td class="cl-red" title="DiemThi">{{this.DiemCuoiKy}}</td>
+                <td class="cl-red" title="DiemTongKet">{{this.DiemTongHe10}}</td>
+                <td class="" title="DiemTinChi">{{this.DiemTongHe4}}</td>
+                <td class="" title="DiemChu">{{this.DiemChu}}</td>
+                <td class="" title="XepLoai">{{this.TenXepLoai}}
+                </td>
+                <td class="" title="GhiChu">{{this.GhiChu}}</td>
+              </tr>
+               {{/each}}
+              {{!-- <tr role="row" class="even" style="height: 31px">
+                <td
+                  colspan="3"
+                  class=""
+                  style="vertical-align: top !important;text-align: left !important;"
+                >
+                  <span>Điểm trung bình học kỳ hệ 10:</span><span> 6,20</span>
+                </td>
+                <td
+                  colspan="6"
+                  class=""
+                  style=" vertical-align: top !important;text-align: left !important;"
+                >
+                  <span>Điểm trung bình học kỳ hệ 4:</span><span> 2,23</span>
+                </td>
+              </tr> --}}
+              <tr role="row" class="odd" style="height: 31px">
+                <td
+                  colspan="3"
+                  class=""
+                  style="vertical-align: top !important;text-align: left !important;"
+                >
+                  <span>Điểm trung bình tích lũy (hệ 10):</span><span> {{DiemHe10}}</span>
+                </td>
+                <td
+                  colspan="6"
+                  class=""
+                  style="vertical-align: top !important; text-align: left !important; "
+                >
+                  <span>Điểm trung bình tích lũy (hệ 4):</span><span> {{DiemHe4}}</span>
+                </td>
+              </tr>
+              <tr role="row" class="even" style="height: 31px">
+                <td
+                  colspan="3"
+                  class=""
+                  style="vertical-align: top !important;text-align: left !important;"
+                >
+                  <span>Tổng số tín chỉ đã đăng ký:</span><span> {{TongSoChi}}</span>
+                </td>
+                <td
+                  colspan="6"
+                  class=""
+                  style="vertical-align: top !important;text-align: left !important;"
+                >
+                  <span>Tổng số tín chỉ tích đạt:</span><span> {{TongChiDat}}</span>
+                </td>
+
+              </tr>
+              <tr role="row" class="even" style="height: 31px">
+                <td
+                  colspan="3"
+                  class=""
+                  style="vertical-align: top !important;text-align: left !important;"
+                >
+                  <span>Tổng số tín chỉ nợ tính đến hiện tại:</span><span> {{TongChiRot}}</span>
+                </td>
+                <td
+                  colspan="6"
+                  class=""
+                  style="vertical-align: top !important;text-align: left !important;"
+                >
+                  <span>Xếp loại học lực tích lũy:</span><span> {{XepLoai}}</span>
+                </td>
+              </tr>
+              
+
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
